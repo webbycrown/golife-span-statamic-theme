@@ -1,0 +1,24 @@
+title: 'Milestone Section'
+fields:
+  -
+    handle: milestone
+    field:
+      max_rows: 6
+      type: grid
+      display: Milestone
+      fields:
+        -
+          handle: text
+          field:
+            type: text
+            display: Text
+            validate:
+              - required
+        -
+          handle: number
+          field:
+            character_limit: 5
+            type: text
+            display: Number
+            validate:
+              - required

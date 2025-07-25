@@ -1,0 +1,20 @@
+title: 'Intro Section'
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: show_when_description
+    field:
+      type: toggle
+      display: 'show when description'
+      width: 25
+  -
+    handle: description
+    field:
+      type: textarea
+      display: Description
+      if:
+        show_when_description: 'equals true'

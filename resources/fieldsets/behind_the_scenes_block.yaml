@@ -1,0 +1,27 @@
+title: 'Behind The Scenes Block'
+fields:
+  -
+    handle: section_title
+    field:
+      type: text
+      display: 'Section Title'
+  -
+    handle: section_description
+    field:
+      type: textarea
+      display: 'Section Description'
+  -
+    handle: images
+    field:
+      max_rows: 5
+      min_rows: 5
+      type: grid
+      display: Images
+      fields:
+        -
+          handle: image
+          field:
+            max_files: 1
+            container: assets
+            type: assets
+            display: Image

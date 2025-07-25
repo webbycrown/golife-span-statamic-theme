@@ -1,0 +1,530 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Light.eot');
+    src: url('../fonts/Satoshi-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Satoshi-Light.woff2') format('woff2'),
+        url('../fonts/Satoshi-Light.ttf') format('ttf'),
+        url('../fonts/Satoshi-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Regular.eot');
+    src: url('../fonts/Satoshi-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Satoshi-Regular.woff2') format('woff2'),
+        url('../fonts/Satoshi-Regular.ttf') format('ttf'),
+        url('../fonts/Satoshi-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Medium.eot');
+    src: url('../fonts/Satoshi-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Satoshi-Medium.woff2') format('woff2'),
+        url('../fonts/Satoshi-Medium.ttf') format('ttf'),
+        url('../fonts/Satoshi-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Bold.eot');
+    src: url('../fonts/Satoshi-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Satoshi-Bold.woff2') format('woff2'),
+        url('../fonts/Satoshi-Bold.ttf') format('ttf'),
+        url('../fonts/Satoshi-Bold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Black.eot');
+    src: url('../fonts/Satoshi-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Satoshi-Black.woff2') format('woff2'),
+        url('../fonts/Satoshi-Black.ttf') format('ttf'),
+        url('../fonts/Satoshi-Black.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+@layer base {
+    body {
+        @apply font-normal text-gray-400
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        @apply font-satoshi 2xl:text-lg text-md tracking-[0.2px] leading-relaxed
+    }
+
+    b {
+        @apply font-[600]
+    }
+
+    h1 {
+        @apply 2xl:text-6xl xl:text-5xl md:text-4xl text-3xl font-[600] leading-snug text-gray-800 lg:mb-6 mb-3
+    }
+
+    h2 {
+        @apply 2xl:text-5xl xl:text-4xl md:text-3xl text-2xl font-[600] leading-snug text-gray-800 lg:mb-6 mb-3
+    }
+
+    h3 {
+        @apply 2xl:text-4xl xl:text-3xl md:text-2xl text-1xl font-[600] leading-snug text-gray-800 lg:mb-6 mb-3
+    }
+
+    h4 {
+        @apply 2xl:text-3xl xl:text-2xl md:text-1xl text-xl font-[600] leading-snug text-gray-800 lg:mb-4 mb-2
+    }
+
+    h5 {
+        @apply 2xl:text-2xl text-xl font-[600] leading-snug text-gray-800 lg:mb-4 mb-2
+    }
+
+    .btn {
+        @apply inline-block md:px-7 px-5 md:py-4 py-3 bg-primary-900 text-white hover:bg-primary-800 hover:text-primary-900 rounded-md transition-all 2xl:text-lg text-md leading-none font-medium text-center
+    }
+
+    .btn.btn-secondary {
+        @apply hover:bg-primary-900 hover:text-white bg-primary-800 text-primary-900
+    }
+    header{
+        @apply shadow-md
+    }
+    .nav-menu .nav-link {
+        @apply 1xl:text-[17px] text-md lg:text-gray-400 text-white lg:hover:text-primary-900 lg:hover:underline font-medium lg:py-2 py-4 lg:border-b-0 border-b border-white/10 tracking-wide transition-all lg:text-left text-center lg:inline-block block
+    }
+    .nav-menu .nav-link.current-link{
+        @apply lg:text-primary-900 lg:underline
+    }
+
+    .nav-menu li {
+        @apply 1xl:mr-8 lg:mr-4 last:mr-0
+    }
+
+    .top-bar select {
+        background-image: linear-gradient(45deg, transparent 50%, #414141 60%), linear-gradient(135deg, #414141 40%, transparent 50%) !important;
+        background-position: calc(100% - 3px) 9px, calc(100% - 0px) 9px, 100% 0;
+        background-size: 4px 8px, 4px 8px;
+        background-repeat: no-repeat;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        padding-right: 10px;
+    }
+
+    .top-bar select option:checked {
+        background: #083D31;
+        color: #fff;
+    }
+    .accordian .accordian-title{
+        @apply pr-5
+    }
+
+    .accordian .accordian-title:after {
+        @apply content-[''] inline-block w-6 h-6 absolute right-0 top-4 bg-[url('../images/chevron-down-white.svg')] bg-contain bg-no-repeat bg-center transition-all
+    }
+    .faq .accordian .accordian-title:after{
+        @apply bg-[url('../images/green-chevron.svg')] md:w-4 md:h-4 w-3 h-3 top-6
+    }
+
+    .accordian .accordian-title.active:after {
+        @apply rotate-180
+    }
+
+    .nav-menu {
+        @apply lg:flex  items-center gap-0 
+    }
+
+    .mobile-toggle {
+        @apply md:w-10 md:h-10 w-9 h-9 bg-primary-400 rounded md:p-2.5 p-2 lg:hidden block relative transition-all duration-500 z-20
+    }
+
+    .mobile-toggle.active span:nth-child(1) {
+        @apply top-[10px] left-[11px] rotate-45
+    }
+
+    .mobile-toggle.active span:nth-child(2) {
+        @apply w-0 opacity-0
+    }
+
+    .mobile-toggle.active span:nth-child(3) {
+        @apply md:top-[27px] top-[24px] left-[11px] -rotate-45
+    }
+
+    button.mobile-toggle span {
+        @apply block absolute h-[2px] md:w-[24px] w-[20px] bg-primary-900 rounded-lg opacity-100 left-[8px] transition-all duration-300 ease-in-out
+    }
+
+    button.mobile-toggle span:nth-child(1) {
+        @apply md:top-[12px] top-[10px] origin-left
+    }
+
+    button.mobile-toggle span:nth-child(2) {
+        @apply md:top-[19px] top-[17px] origin-left
+    }
+
+    button.mobile-toggle span:nth-child(3) {
+        @apply md:top-[26px] top-[24px] origin-left
+    }
+
+    .tabs-content {
+        @apply hidden
+    }
+
+    .tabs-content.current {
+        @apply block
+    }
+
+    .funding-form .tabs-list {
+        @apply flex mb-6 gap-0
+    }
+
+    .funding-form .tabs-list .tab-link {
+        @apply border border-gray-200 2xl:text-lg font-medium sm:text-md text-[15px] rounded-none text-center 2xl:px-8 sm:px-5 min-[360px]:px-3 px-1 2xl:py-3.5 sm:py-2.5 py-2 hover:bg-primary-900 hover:text-white cursor-pointer hover:border-primary-900
+    }
+
+    .funding-form .tabs-list .tab-link.current, .tabs-list .tab-link.current, .fundraiser-tabs .tabs-list .tab-link.current, .monthly-donate .tabs-list .tab-link.current {
+        @apply bg-primary-900 text-white border-primary-900
+    }
+
+    .funding-form .tabs-list .tab-link:first-child {
+        @apply rounded-l-lg
+    }
+
+    .funding-form .tabs-list .tab-link:last-child {
+        @apply rounded-r-lg
+    }
+
+    .contribute .tabs-list {
+        @apply gap-3
+    }
+    .contribute .tabs-list  .tab-link{
+        @apply sm:w-auto w-[47%]
+    }
+
+    .tabs-list {
+        @apply flex items-center gap-2 flex-wrap lg:my-8 my-6
+    }
+
+    .fundraiser-tabs .tabs-list {
+        @apply justify-center
+    }
+
+    .fundraiser-tabs .tabs-list .tab-link {
+        @apply sm:text-md text-[15px]
+    }
+
+    .tabs-list .tab-link {
+        @apply lg:text-lg text-md text-gray-800 font-medium bg-primary-400 rounded lg:py-2 py-1.5 lg:px-8 px-4 text-center hover:bg-primary-900 hover:text-white cursor-pointer
+    }
+
+    .monthly-donate .tabs-list .tab-link{
+        @apply sm:bg-primary-400 bg-white hover:bg-primary-900
+    }
+
+    .fundraiser-tabs .tabs-list .tab-link {
+        @apply xl:py-2.5 sm:py-2 py-1 xl:px-6 md:px-5 px-3.5 text-gray-400 bg-gray-100 border border-gray-200
+    }
+
+    .selectamount {
+        @apply relative bg-primary-400 py-1.5 2xl:px-5 xl:px-3 px-2 rounded-md text-gray-400 font-medium sm:text-md text-[15px] inline-block cursor-pointer text-center
+    }
+
+    .amount-select input[type="radio"] {
+        @apply hidden
+    }
+
+    input[type="radio"]:checked+.selectamount {
+        @apply bg-primary-900 text-white
+    }
+
+    .fundraiser-item a.title {
+        @apply lg:text-lg text-md font-[600] leading-tight text-gray-800 mb-4 line-clamp-2
+    }
+
+    .fundraiser-item:hover a.title {
+        @apply underline
+    }
+
+    .fundraiser-item:hover .f-img {
+        @apply grayscale
+    }
+
+    .fundraiser-item .fund-worker {
+        @apply mb-4 flex items-center gap-2 text-md text-gray-400
+    }
+
+    .fundraiser-item .fund-worker .avatar {
+        @apply w-8 h-8 bg-primary-900 flex items-center justify-center text-md font-[600] rounded-full uppercase text-white
+    }
+
+    .fundraiser-item .fund-amount {
+        @apply text-sm mb-2.5
+    }
+
+    .fundraiser-item .fund-amount span {
+        @apply font-[600] text-[15px]
+    }
+
+    .fundraiser-item .progressbar {
+        @apply relative w-full h-[6px] bg-gray-200 mb-4 rounded-xl
+    }
+
+    .fundraiser-item .progressbar .fillbar {
+        @apply absolute left-0 top-0 w-full h-[6px] bg-primary-800 rounded-xl
+    }
+
+    .fundraiser-item .contributor {
+        @apply inline-flex items-center gap-1.5 text-sm text-gray-400 font-medium
+    }
+
+    .fundraiser-item .share {
+        @apply inline-flex items-center gap-1.5 bg-gray-200 rounded-md py-1 px-1.5 text-sm text-gray-400 font-medium hover:bg-primary-400
+    }
+
+    .fundraiser-item .btn {
+        @apply mt-4 w-full flex gap-2 items-baseline justify-center leading-none
+    }
+
+    .swiper .swiper-button-next, .swiper .swiper-button-prev {
+        @apply lg:w-12 lg:h-12 w-10 h-10 md:mt-0 mt-5 lg:-translate-y-1/2 border border-gray-200 bg-gray-100 rounded-full inline-flex items-center justify-center text-lg hover:bg-primary-900 hover:text-white hover:border-primary-900 text-primary-900 shadow-box
+    }
+
+    .swiper .swiper-button-next:after, .swiper .swiper-button-prev:after {
+        @apply text-md font-bold
+    }
+
+    .swiper .swiper-button-next {
+        @apply md:-right-5 md:absolute static
+    }
+
+    .swiper .swiper-button-prev {
+        @apply md:-left-5 md:absolute static
+    }
+
+    .contribute-gallery {
+        @apply rounded-md
+    }
+
+    .contribute-gallery img {
+        @apply lg:max-h-[470px] sm:max-h-[320px] max-h-[280px] lg:min-h-[470px] sm:min-h-[320px] min-h-[280px] object-cover rounded-md w-full
+    }
+
+    .contribute-thumb {
+        @apply sm:mt-6 mt-3
+    }
+
+    .contribute-thumb img {
+        @apply sm:w-28 w-20 sm:h-16 h-14 object-cover rounded
+    }
+
+    .contribute-thumb .swiper-slide {
+        @apply w-auto
+    }
+
+    .contribute-gallery.swiper .swiper-button-prev, .contribute-gallery.swiper .swiper-button-next {
+        @apply lg:w-10 sm:w-8 w-6 lg:h-16 sm:h-12 h-10 bg-primary-900/30 hover:bg-primary-900 backdrop-blur-[2px] text-white border-0 rounded-md shadow-none absolute
+    }
+
+    .contribute-gallery.swiper .swiper-button-prev {
+        @apply left-2
+    }
+
+    .contribute-gallery.swiper .swiper-button-next {
+        @apply right-2
+    }
+    .popup-gallery-img{
+      @apply  border-[3px] border-gray-200 rounded-md relative
+    }
+    .popup-gallery-img:after{
+        @apply content-[''] opacity-0 flex items-center justify-center bg-black/50 bg-[url('../images/popup-icon.svg')] bg-contain bg-center transition-all bg-no-repeat w-full h-full z-2 absolute left-0 top-0
+    }
+    .popup-gallery-img:hover:after{
+        @apply opacity-100
+    }
+    .popup-gallery-img:after{
+        background-size: 40px;
+    }
+    .global-form{
+        @apply bg-white rounded-md overflow-hidden shadow-box lg:p-6 p-4
+    }
+    .global-form .title{
+        @apply bg-primary-900 text-center lg:p-4 p-3 lg:-mx-6 -mx-4 lg:-mt-6 -mt-4 text-white lg:text-1xl md:text-xl text-lg
+    }
+    .global-form label{
+        @apply 1xl:text-lg text-md font-medium text-gray-800 2xl:mb-4 mb-2.5 block
+    }
+    .global-form .input-wrap{
+        @apply  2xl:mb-6 lg:mb-5 mb-3.5
+    }
+    .custom-input{
+        @apply border border-gray-200 bg-gray-500 rounded-md md:py-3 py-2.5 md:px-6 px-4 w-full font-medium 2xl:text-lg text-md placeholder:text-gray-400 text-gray-800 focus-visible:outline-none focus-visible:border-primary-900/20
+    }
+    select.custom-input{
+        background-image: url(../images/green-chevron.svg);
+        background-position: calc(100% - 15px) 50%, 100% 0;
+        background-size: 11px;
+        background-repeat: no-repeat;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+    }
+    button.form-step{
+        @apply relative ml-10 first:ml-0 lg:w-11 lg:h-11 w-10 h-10 bg-primary-400 hover:bg-primary-900 rounded-full inline-flex items-center justify-center lg:text-xl text-lg font-[500] text-gray-800 hover:text-white 
+    }
+    button.form-step.active{
+        @apply bg-primary-900 text-white before:bg-primary-900
+    }
+    button.form-step:before{
+        @apply content-[''] inline-block first:hidden w-5 h-1 bg-primary-400 rounded-lg mx-2.5 absolute right-full
+    }
+    .custom-radio{
+        @apply cursor-pointer relative !mb-0 leading-none
+    }
+    .custom-radio:before {
+        @apply content-[''] relative align-middle -mt-px mr-2 bg-primary-400 w-5 h-5 rounded-[3px] border border-gray-200 text-gray-400 font-medium sm:text-md text-[15px] inline-block cursor-pointer text-center 
+    }
+    .custom-radio:after{
+        @apply content-[''] block w-3.5 h-3.5 bg-[url('../images/mingcute_check-fill.svg')] bg-center bg-contain bg-no-repeat absolute top-1/2 left-[3px] scale-0 -translate-y-1/2 transition-all
+    }
+    input{
+        @apply focus-visible:outline-none
+    }
+    input[type="radio"] {
+        @apply hidden
+    }
+    input[type="radio"]:checked+.custom-radio:after{
+        @apply  scale-100
+    }
+    input[type="radio"]:checked+.custom-radio:before {
+        @apply bg-primary-900 text-white border-primary-900
+    }
+    .dropzone.custom-dropzone{
+        @apply border border-gray-200 rounded-md lg:p-6 p-2.5 bg-gray-500 relative z-1
+    }
+    .form-payment .tab-link{
+        @apply text-md px-3
+    }
+    .form-payment .tabs-list{
+        @apply justify-center
+    }
+    #donate-form , #login-form{
+        @apply relative
+    }
+    #donate-form button.mfp-close, #login-form button.mfp-close{
+        @apply -top-11 text-white
+    }
+    .custom-dropzone.dropzone .dz-preview .dz-image{
+        @apply flex items-center justify-center lg:w-28 lg:h-28 w-20 h-20
+    }
+    .custom-dropzone.dropzone .dz-preview .dz-success-mark svg, .custom-dropzone.dropzone .dz-preview .dz-error-mark svg{
+        @apply lg:w-12 lg:h-12 w-9 h-9
+    }
+    .custom-dropzone.dropzone .dz-preview .dz-error-mark{
+        @apply lg:-ml-6 -ml-4
+    }
+    .custom-dropzone.dropzone .dz-preview{
+        @apply lg:m-4 m-2
+    }
+    .n_post{
+        @apply border-r border-gray-200 xl:px-6 px-4 
+    }
+    .n_post:nth-child(3n + 3){
+        @apply md:border-r-0
+    }
+    .n_post .n_news-img{
+        @apply overflow-hidden block rounded-md 
+    }
+    .n_post .n_news-img img{
+        @apply w-full transition-all rounded-md 
+    }
+    .n_post:hover .n_news-img img{
+        @apply scale-105
+    }
+    .n_post .title{
+        @apply  2xl:text-xl text-lg text-gray-800 font-[600] mt-3.5 mb-2.5 line-clamp-2 leading-snug
+    }
+    .n_post:hover .title{
+        @apply  underline
+    }
+    .n_post .des{   
+        @apply mb-3 line-clamp-3 text-md 
+    }
+    .tabs-list.vertical-tabs{
+        @apply lg:block gap-0 items-stretch rounded-md overflow-hidden border lg:border-0 border-primary-400
+    }
+    .tabs-list.vertical-tabs .tab-link{
+        @apply grow bg-transparent text-gray-400 lg:m-0 -m-px bg-white flex rounded-none lg:justify-start justify-center items-center sm:gap-3 gap-2 lg:border-b border border-primary-400 lg:border-0 lg:last:border-b-0 lg:px-6 px-4 py-3 lg:py-4 lg:w-full sm:w-1/4 w-1/2 lg:hover:rounded-md hover:border-primary-400 hover:bg-primary-400 hover:text-primary-900
+    }
+    .tabs-list.vertical-tabs .tab-link.current{
+        @apply lg:rounded-md bg-primary-400 text-primary-900 border-primary-400 
+    }
+    .account-tabs{
+        @apply lg:pr-10 w-full
+    }
+    .account-tabs .tabs-content{
+        @apply bg-primary-400 lg:p-6 p-4 rounded-md w-full
+    }
+    body.menu-open{
+        @apply overflow-hidden
+    }
+
+    @media (max-width:991px){
+        button.mobile-toggle.active{
+            @apply -mt-[34px] bg-transparent
+        }
+        .mobile-toggle.active span{
+            @apply bg-white
+        }
+        .mobile-navmenu{
+            @apply fixed left-0 -top-full transition-all duration-500 w-full h-full  bg-primary-900 p-4  z-2 flex gap-0 opacity-0 flex-col
+        }
+        .mobile-navmenu.open{
+            @apply  top-0 opacity-100
+        }
+        .nav-menu .nav-link.current-link:before{
+            @apply content-[''] inline-block w-5 h-5  bg-[url('../images/double-arrow.svg')] bg-center bg-contain bg-no-repeat mr-2 align-sub
+        }
+        .mobile-navmenu .nav-menu{
+            @apply flex items-center  flex-col w-full h-full overflow-auto max-h-[calc(100vh-120px)]
+        }
+        .mobile-navmenu .nav-menu li{
+            @apply w-full
+        }
+    }
+    @media (max-width:767px){
+        .n_post:nth-child(2n + 2){
+            @apply border-r-0
+        }
+    }
+    @media (max-width:575px){
+        .n_post{
+            @apply border-r-0
+        }
+    }
+}

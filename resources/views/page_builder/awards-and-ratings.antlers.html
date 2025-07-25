@@ -1,0 +1,36 @@
+<section class="2xl:my-20 lg:my-14 my-12 bg-primary-900 lg:py-12 py-8">
+    <div class="container">
+        <div class="flex items-center justify-between  md:flex-nowrap flex-wrap min-[420px]:gap-0 gap-4">
+            {{ grid_field }}
+                <div class="relative py-6 px-6 md:w-1/4 min-[420px]:w-1/2 w-full">
+                    <p class="text-center 2xl:text-[22px] lg:text-xl text-lg font-[600] text-white leading-snug">
+                        {{ title }}
+                    </p>
+                    <div class="my-2 flex items-center justify-center gap-2">
+                        {{ loop from="1" to="{rating}" }}
+                            <svg width="16" height="14" viewBox="0 0 16 14" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.2326 13.9281L4.43816 8.9693L0.429688 5.63544L5.70983 5.19677L7.77774 0.519836L9.84566 5.19584L15.1248 5.6345L11.1164 8.96837L12.3229 13.9272L7.77774 11.2952L3.2326 13.9281Z"
+                                    fill="#F8D419" />
+                            </svg>
+                        {{ /loop }}
+                        {{ if rating < 5 }}
+                            {{ loop from="1" to="{{5-rating}}" }}
+                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M3.2326 13.9281L4.43816 8.9693L0.429688 5.63544L5.70983 5.19677L7.77774 0.519836L9.84566 5.19584L15.1248 5.6345L11.1164 8.96837L12.3229 13.9272L7.77774 11.2952L3.2326 13.9281Z"
+                                        fill="#BCBCBC" />
+                                </svg>
+                            {{ /loop }}
+                        {{ /if }}
+                    </div>
+                    <p class="text-md text-white text-center">{{ sub_title }}</p>
+                    <img src="{{ bg_logo }}" alt="awwards"
+                        class="xl:w-52 w-36 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
+                </div>
+            {{ /grid_field }}
+        </div>
+    </div>
+</section>

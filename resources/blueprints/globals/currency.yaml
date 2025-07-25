@@ -1,0 +1,13 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: dictionary_field
+            field:
+              dictionary: currencies
+              max_items: 10
+              type: dictionary
+              display: 'Dictionary Field'

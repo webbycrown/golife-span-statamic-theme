@@ -1,0 +1,27 @@
+title: 'Campaigns Section'
+fields:
+  -
+    handle: galleries_image
+    field:
+      max_files: 10
+      container: assets
+      type: assets
+      display: 'Galleries Image'
+  -
+    handle: button_group_field
+    field:
+      options:
+        -
+          key: About
+          value: About
+        -
+          key: Documents
+          value: Documents
+        -
+          key: 'Latest update'
+          value: 'Latest update'
+        -
+          key: Comment
+          value: Comment
+      type: button_group
+      display: 'Button Group'

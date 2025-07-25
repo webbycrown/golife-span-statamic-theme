@@ -1,0 +1,53 @@
+{{ if layout == "image-text" }}
+    <h1 class="text-center lg:mb-5 mb-4 2xl:text-5xl lg:text-4xl text-2xl"><span class=" block">{{ title }}</h1>
+    <div class="relative rounded-lg overflow-hidden lg:mb-6 mb-4">
+        <img src="{{ banner_image }}" alt="stories" class="w-full rounded-lg">
+        <div
+            class="bg-white/70 backdrop-blur-sm flex items-center sm:flex-row flex-col gap-3 sm:justify-between justify-center md:absolute bottom-0 left-0 w-full md:px-5 py-2.5">
+            <p class="flex items-center gap-2 text-md ">
+                <img src="../assets/images/check-flower.svg" alt="fund"> <span class="font-bold text-gray-800">
+                    {{ convert_currency from="{fund_amount_inr}" }}
+                        {{ formatted }}
+                </span>
+                {{ /convert_currency }}
+                </span> successfully raised
+            </p>
+            {{ if show_share_buttons }}
+                {{ current_url = current_url }}
+                <div class="flex gap-4 items-center justify-center sm:w-auto w-full">
+
+                    <a class="btn bg-blue hover:!bg-gray-800 hover:!text-white md:px-6 px-4 md:py-2.5 py-2 sm:w-auto w-full shadow-box text-md font-[500] rounded flex items-center justify-center gap-2"
+                        href="https://www.facebook.com/sharer/sharer.php?u={{ glide src='{url}' absolute='true' }}"
+                        target="_blank" rel="noopener noreferrer">
+                        <svg width="20" height="20" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g>
+                                <path
+                                    d="M19.4844 0.734375H1.51562C1.0835 0.734375 0.734375 1.0835 0.734375 1.51562V19.4844C0.734375 19.9165 1.0835 20.2656 1.51562 20.2656H19.4844C19.9165 20.2656 20.2656 19.9165 20.2656 19.4844V1.51562C20.2656 1.0835 19.9165 0.734375 19.4844 0.734375ZM17.2285 6.43506H15.6685C14.4453 6.43506 14.2085 7.01611 14.2085 7.8706V9.75293H17.1284L16.7476 12.6997H14.2085V20.2656H11.1641V12.7021H8.61768V9.75293H11.1641V7.58008C11.1641 5.05811 12.7046 3.68359 14.9556 3.68359C16.0347 3.68359 16.96 3.76416 17.231 3.80078V6.43506H17.2285Z"
+                                    fill="currentcolor" />
+                            </g>
+                        </svg>
+                        Share
+                    </a>
+                    <a class="btn bg-green hover:!bg-gray-800 hover:!text-white md:px-6 px-4 md:py-2.5 py-2 sm:w-auto w-full shadow-box text-md font-[500] rounded flex items-center justify-center gap-2"
+                        href="https://wa.me/?text={{ glide src='{url}' absolute='true' }}" target="_blank"
+                        rel="noopener noreferrer">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.59663 1.67672C5.17163 1.88505 1.6808 5.54339 1.69413 9.94089C1.69632 11.2353 2.00623 12.5106 2.5983 13.6617L1.71663 17.9126C1.70587 17.9657 1.70869 18.0207 1.72482 18.0725C1.74095 18.1242 1.76987 18.1711 1.80892 18.2087C1.84796 18.2464 1.89586 18.2735 1.94819 18.2878C2.00051 18.302 2.05558 18.3028 2.1083 18.2901L6.3033 17.3034C7.41436 17.8524 8.63409 18.1463 9.8733 18.1634C14.3958 18.2326 18.1658 14.6676 18.3066 10.1801C18.4583 5.36755 14.4591 1.44589 9.59663 1.67589V1.67672ZM14.6025 14.4826C13.9979 15.085 13.2803 15.5622 12.491 15.8868C11.7016 16.2114 10.856 16.377 10.0025 16.3742C8.99831 16.3773 8.0072 16.1468 7.10746 15.7009L6.5233 15.4117L3.9508 16.0167L4.49246 13.4076L4.20413 12.8476C3.73671 11.9415 3.49433 10.9362 3.49746 9.91672C3.49746 8.19172 4.17413 6.56922 5.40246 5.35005C6.62679 4.13814 8.27976 3.45809 10.0025 3.45755C11.7408 3.45755 13.3741 4.12922 14.6025 5.34922C15.2076 5.94558 15.6879 6.65659 16.0151 7.44069C16.3423 8.22479 16.51 9.06625 16.5083 9.91589C16.5083 11.6259 15.8208 13.2742 14.6025 14.4834V14.4826Z"
+                                fill="currentcolor" />
+                            <path
+                                d="M14.0349 11.7042L12.4257 11.2459C12.3219 11.2161 12.212 11.2148 12.1074 11.242C12.0029 11.2693 11.9076 11.3242 11.8316 11.4009L11.4382 11.7992C11.3569 11.8817 11.253 11.9383 11.1396 11.962C11.0262 11.9857 10.9083 11.9755 10.8007 11.9326C10.0399 11.6267 8.43825 10.2134 8.02908 9.50591C7.97172 9.40598 7.94552 9.2912 7.95383 9.17628C7.96215 9.06136 8.0046 8.95154 8.07574 8.86091L8.41908 8.41925C8.48517 8.33462 8.527 8.23361 8.54006 8.12703C8.55313 8.02045 8.53694 7.91233 8.49325 7.81425L7.81658 6.29425C7.77831 6.20929 7.72085 6.13437 7.64873 6.07537C7.57661 6.01637 7.49179 5.9749 7.40093 5.95423C7.31007 5.93355 7.21566 5.93423 7.12511 5.95621C7.03456 5.9782 6.95034 6.02088 6.87908 6.08091C6.42991 6.45841 5.89658 7.03091 5.83241 7.66675C5.71824 8.78591 6.20158 10.1967 8.02991 11.8917C10.1424 13.8492 11.8349 14.1084 12.9357 13.8426C13.5607 13.6926 14.0607 13.0901 14.3749 12.5976C14.4252 12.5194 14.4563 12.4304 14.466 12.3379C14.4756 12.2455 14.4634 12.152 14.4303 12.0651C14.3972 11.9782 14.3442 11.9003 14.2755 11.8376C14.2069 11.775 14.1245 11.7293 14.0349 11.7042Z"
+                                fill="currentcolor" />
+                        </svg>
+                        Share
+                    </a>
+                </div>
+            {{ /if }}
+        </div>
+    </div>
+{{ /if }}
+{{ if layout == "only-image" }}
+    <div class="1xl:container max-w-[1000px] mx-auto px-4 lg:my-8 my-4">
+        <img src="{{ banner_image }}" alt="news" class="w-full block max-w-full">
+    </div>
+{{ /if }}

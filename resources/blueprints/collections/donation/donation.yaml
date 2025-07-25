@@ -1,0 +1,136 @@
+title: Donation
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+              display: Id
+              visibility: read_only
+          -
+            handle: currency_name
+            field:
+              type: text
+              display: 'Currency Name'
+              width: 33
+              visibility: read_only
+          -
+            handle: amount
+            field:
+              type: float
+              display: Amount
+              width: 33
+              visibility: read_only
+          -
+            handle: amount_inr
+            field:
+              type: float
+              display: 'Amount INR'
+              width: 33
+              visibility: read_only
+          -
+            handle: donor_name
+            field:
+              max_items: 1
+              mode: select
+              collections:
+                - customer
+              type: entries
+              display: 'Donor Name'
+              visibility: read_only
+              width: 50
+          -
+            handle: email
+            field:
+              type: text
+              display: Email
+              visibility: read_only
+              width: 50
+          -
+            handle: phone_number
+            field:
+              type: integer
+              display: 'Phone Number'
+              visibility: read_only
+              width: 50
+          -
+            handle: pan
+            field:
+              type: text
+              display: 'PAN Card Number'
+              visibility: read_only
+              width: 50
+          -
+            handle: donation_type
+            field:
+              type: text
+              display: 'Donation Type'
+              visibility: read_only
+              width: 50
+          -
+            handle: campaign
+            field:
+              max_items: 1
+              collections:
+                - campaigns
+              type: entries
+              display: Campaign
+              mode: select
+              width: 50
+          -
+            handle: payment_id
+            field:
+              type: text
+              display: 'Payment ID'
+              visibility: read_only
+              width: 50
+          -
+            handle: subscription_id
+            field:
+              type: text
+              display: subscription_id
+              width: 50
+              visibility: read_only
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - donation
+              max_items: 1
+              listable: false
+              localizable: true
+  seo_meta:
+    display: 'SEO Meta'
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            import: seo_meta

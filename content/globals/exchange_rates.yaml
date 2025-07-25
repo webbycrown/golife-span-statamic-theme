@@ -1,0 +1,33 @@
+title: 'Exchange Rates'
+data:
+  currency_rate:
+    -
+      id: mc00m3t1
+      currency: INR
+      rate: 1.0
+      symbols: ₹
+    -
+      id: mc00mbst
+      currency: USD
+      rate: 85.49
+      symbols: $
+    -
+      id: mc00mr1x
+      currency: CAD
+      rate: 62.44
+      symbols: $
+    -
+      id: mc00n4nx
+      currency: GBP
+      rate: 106.75
+      symbols: £
+    -
+      id: mc00nbdx
+      currency: AUD
+      rate: 55.79
+      symbols: $
+    -
+      id: mc00njjx
+      currency: EUR
+      rate: 90.5
+      symbols: €

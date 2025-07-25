@@ -1,0 +1,116 @@
+<section class="2xl:my-20 lg:my-14 my-12">
+    <div class="container">
+        <div class="flex xl:flex-nowrap flex-wrap xl:border-t border-gray-200">
+            <!-- Mobile Filter Dropdown -->
+            <select name="category" id="category-filter"
+                class="custom-input 2xl:mb-6 mb-3 xl:hidden block bg-primary-400">
+                <option value="all" {{ if !get:category }}selected{{ /if }}>All {{ collections }}</option>
+                {{ taxonomy:treatment_categories sort="title:asc" }}
+                    <option value="{{ slug }}" {{ if slug == get:category }}selected{{ /if }}>
+                        {{ title }}
+                        {{ collections }}
+                    </option>
+                {{ /taxonomy:treatment_categories }}
+            </select>
+
+            <!-- Desktop Filter Sidebar -->
+            <aside
+                class="bg-primary-400 p-5 rounded-md mt-8 xl:mr-8 min-w-56 self-start xl:w-auto w-full xl:block hidden">
+                <ul class="filter-list">
+                    <li class="filter-item {{ if !get:category }}active{{ /if }}">
+                        <a href="{{ current_url }}"
+                            class="flex items-center justify-between text-md gap-4 {{ if !get:category }}text-primary-900{{ else }}text-gray-400 opacity-50 hover:opacity-100 hover:text-primary-900{{ /if }} font-medium mb-3.5 last:mb-0">
+                            All stories
+                            {{ count_list = 0 }}
+                            {{ collection:stories }}
+                                {{ count_list = total_results }}
+                            {{ /collection:stories }}
+                            <span class="text-gray-500">({{ count_list }})</span>
+                        </a>
+                    </li>
+                    {{ taxonomy:treatment_categories sort="title:asc" }}
+                        <li class="filter-item {{ if slug == get:category }}active{{ /if }}">
+                            <a href="?category={{ slug }}"
+                                class="flex items-center justify-between text-md gap-4 {{ if slug == get:category }}text-primary-900{{ else }}text-gray-400 opacity-50 hover:opacity-100 hover:text-primary-900{{ /if }} font-medium mb-3.5 last:mb-0">
+                                {{ title }} stories
+                                {{ count_list = 0 }}
+                                {{ collection:stories categories:contains="{{ slug }}" }}
+                                    {{ count_list = total_results }}
+                                {{ /collection:stories }}
+                                {{ if count_list > 0 }}
+                                    <span class="text-gray-500">({{ count_list }})</span>
+                                {{ /if }}
+                            </a>
+                        </li>
+                    {{ /taxonomy:treatment_categories }}
+                </ul>
+            </aside>
+
+            <!-- Stories Section -->
+            <div class="xl:pl-8 lg:pt-8 pt-4 xl:border-l border-gray-200" id="stories-wrapper">
+                {{ collection:{collections} limit="{limit}" sort="date:desc" categories:contains="{{ get:category }}" paginate="true" }}
+                    {{ entries }}
+                        {{ page_builder }}
+                            {{ if type == "featured-story-banner" }}
+                                <div
+                                    class="story-block lg:mb-10 lg:pb-10 mb-6 pb-6 border-b border-gray-200 flex items-stretch md:flex-nowrap flex-wrap lg:gap-10 gap-6 group">
+                                    <div class="md:w-[88%] w-full self-center md:order-1 order-2">
+                                        <a href="{{ url }}"
+                                            class="2xl:text-xl text-lg leading-snug font-[600] mb-4 text-gray-800 inline-block group-hover:underline">{{ title }}</a>
+                                        <p class="2xl:text-lg text-md mb-4">{{ thumb_description }}</p>
+                                        <div class="mt-4 flex items-center justify-between flex-wrap gap-2">
+                                            <p class="flex items-center gap-2 text-md">
+                                                <img src=".././assets/images/check-flower.svg" alt="fund">
+                                                <span class="font-bold text-gray-800">
+                                                    {{ convert_currency from="{fund_amount_inr}" }}
+                                                        {{ formatted }}
+                                                </span>
+                                                {{ /convert_currency }}
+                                                </span> successfully raised
+                                            </p>
+                                            <a class="text-primary-900 hover:text-gray-800 font-medium 2xl:text-lg text-md inline-flex items-center gap-1.5 group"
+                                                href="{{ url }}">
+                                                <span class="underline">Read more</span>
+                                                <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="transition-all group-hover:translate-x-1 -mb-[2px]">
+                                                    <path
+                                                        d="M10.3869 5.49998L5.83505 0.623047L4.79812 1.73405L8.31299 5.49998L4.79812 9.2659L5.83505 10.3769L10.3869 5.49998ZM6.24352 5.49998L1.69172 0.623047L0.654785 1.73405L4.16965 5.49998L0.654785 9.2659L1.69172 10.3769L6.24352 5.49998Z"
+                                                        fill="currentcolor" />
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="xl:w-[22%] md:w-[30%] w-full md:order-2 order-1">
+                                        <a href="{{ url }}">
+                                            <img src="{{ thumb_image }}" alt="success stories"
+                                                class="w-full h-full object-cover rounded-lg lg:group-hover:scale-105 transition-all">
+                                        </a>
+                                    </div>
+                                </div>
+                            {{ /if }}
+                        {{ /page_builder }}
+                    {{ /entries }}
+                    {{ if no_results }}
+                        <div class="text-center py-8">
+                            <p class="text-gray-500">No stories found</p>
+                        </div>
+                    {{ /if }}
+                    {{ paginate }}
+                        {{ if next_page }}
+                            <div class=" flex items-center justify-center mt-8" id="load-more-wrapper">
+                                <a href="javascript:;" class="btn btn-secondary flex items-center group load-more-btns loadText"
+                                    data-url="{{ next_page }}"> <span class="load-text">Load more
+                                        {{ collections }}
+                                    </span> <span class="loader mx-small spinner hidden group-hover:animate-spin" style="display: none;"></span>
+                                  
+
+                                </a>
+                            </div>
+                        {{ /if }}
+                    {{ /paginate }}
+                {{ /collection:{collections} }}
+            </div>
+        </div>
+    </div>
+</section>

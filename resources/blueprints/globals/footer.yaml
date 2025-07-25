@@ -1,0 +1,186 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: 'footer topbar'
+        fields:
+          -
+            handle: text
+            field:
+              character_limit: 100
+              type: textarea
+              display: Text
+          -
+            handle: button
+            field:
+              max_rows: 1
+              type: grid
+              display: Button
+              min_rows: 1
+              fields:
+                -
+                  handle: text
+                  field:
+                    type: text
+                    display: Text
+                -
+                  handle: link
+                  field:
+                    type: text
+                    display: Link
+      -
+        display: 'Footer Main'
+        fields:
+          -
+            handle: logo
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: Logo
+          -
+            handle: social_media
+            field: common_setting.social_media
+            config:
+              validate:
+                - required
+      -
+        display: 'Contact Info'
+        fields:
+          -
+            handle: heading
+            field:
+              character_limit: 25
+              type: text
+              display: Heading
+          -
+            handle: contact_info
+            field:
+              type: grid
+              display: 'Contact Info'
+              fields:
+                -
+                  handle: text_field
+                  field:
+                    type: text
+                    display: Text
+                -
+                  handle: value
+                  field:
+                    type: text
+                    display: Value
+                -
+                  handle: type
+                  field:
+                    options:
+                      -
+                        key: email
+                        value: Email
+                      -
+                        key: phone
+                        value: 'Phone Number'
+                    type: select
+                    display: Type
+                    validate:
+                      - required
+      -
+        display: about
+        fields:
+          -
+            handle: about_us
+            field:
+              type: text
+              display: 'About us'
+          -
+            handle: grid_about_us
+            field:
+              type: grid
+              display: 'Grid About us'
+              fields:
+                -
+                  handle: text
+                  field:
+                    type: text
+                    display: Text
+                -
+                  handle: link
+                  field:
+                    type: text
+                    display: Link
+          -
+            handle: learn
+            field:
+              type: text
+              display: Learn
+          -
+            handle: grid_learn
+            field:
+              type: grid
+              display: 'Grid Learn'
+              fields:
+                -
+                  handle: text
+                  field:
+                    type: text
+                    display: Text
+                -
+                  handle: link
+                  field:
+                    type: text
+                    display: Link
+      -
+        display: 'Get Update'
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Title
+          -
+            handle: forms
+            field:
+              max_items: 1
+              mode: select
+              type: form
+              display: Forms
+          -
+            handle: button_text
+            field:
+              type: text
+              display: 'Button Text'
+          -
+            handle: update_description
+            field:
+              character_limit: 150
+              type: textarea
+              display: 'Update Description'
+      -
+        display: 'Copyright Section'
+        fields:
+          -
+            handle: copyright_text
+            field:
+              type: text
+              display: 'Copyright Text'
+          -
+            handle: payment_image
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: 'Payment Gateway Image'
+      -
+        display: 'accordion block'
+        fields:
+          -
+            handle: accordion_block_title
+            field:
+              type: text
+              display: 'Accordion Block Title'
+          -
+            handle: accordion_block
+            field:
+              remove_empty_nodes: false
+              type: bard
+              display: 'Accordion Block'

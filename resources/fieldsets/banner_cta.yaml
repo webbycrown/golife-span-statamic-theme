@@ -1,0 +1,57 @@
+title: 'Banner CTA Sction'
+fields:
+  -
+    handle: bg_image
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: Bg-Image
+  -
+    handle: headline
+    field:
+      character_limit: 200
+      type: textarea
+      display: Headline
+      validate:
+        - required
+  -
+    handle: supporting_points
+    field:
+      max_rows: 6
+      type: grid
+      display: 'Supporting Points'
+      validate:
+        - required
+      fields:
+        -
+          handle: icon
+          field:
+            max_files: 1
+            container: assets
+            type: assets
+            display: Icon
+        -
+          handle: text
+          field:
+            type: text
+            display: Text
+  -
+    handle: button
+    field:
+      max_rows: 1
+      type: grid
+      display: Button
+      validate:
+        - required
+      fields:
+        -
+          handle: text
+          field:
+            type: text
+            display: Text
+        -
+          handle: link
+          field:
+            type: text
+            display: Link

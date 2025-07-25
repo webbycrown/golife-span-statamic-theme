@@ -1,0 +1,35 @@
+title: 'Urgent Needs Grid'
+fields:
+  -
+    handle: section_title
+    field:
+      type: text
+      display: 'Section Title'
+      validate:
+        - required
+  -
+    handle: limit
+    field:
+      type: integer
+      display: 'List Limit'
+      validate:
+        - required
+  -
+    handle: button
+    field:
+      max_rows: 1
+      type: grid
+      display: Button
+      validate:
+        - required
+      fields:
+        -
+          handle: text_field
+          field:
+            type: text
+            display: Text
+        -
+          handle: link
+          field:
+            type: text
+            display: Link

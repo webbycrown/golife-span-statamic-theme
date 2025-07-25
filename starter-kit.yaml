@@ -1,0 +1,25 @@
+title: GoLife Span Theme
+user: webbycrown
+repo: webbycrown/golife-span-statamic-theme
+export_paths:
+  - routes
+  - content
+  - app/Http
+  - app/Helpers
+  - app/Tags
+  - resources/blueprints
+  - resources/forms
+  - resources/fieldsets
+  - resources/users
+  - resources/views
+  - resources/css
+  - resources/js
+  - public/assets
+  - public/build
+  - storage/forms
+  - package.json
+  - postcss.config.js
+  - vite.config.js
+  - tailwind.config.js
+  - tailwind.css
+  - README.md

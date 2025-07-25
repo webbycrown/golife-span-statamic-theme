@@ -1,0 +1,40 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: full_name
+            field:
+              placeholder: 'Enter your name'
+              type: text
+              display: 'Full Name'
+              validate:
+                - required
+          -
+            handle: phone_number
+            field:
+              input_type: number
+              placeholder: 'Enter your phone number'
+              type: text
+              display: Phone
+              validate:
+                - required
+          -
+            handle: email
+            field:
+              input_type: email
+              placeholder: 'Enter your email address'
+              type: text
+              display: Email
+              validate:
+                - required
+          -
+            handle: message
+            field:
+              placeholder: 'Write some message for us...'
+              type: textarea
+              display: Message
+              validate:
+                - required

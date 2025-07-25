@@ -1,0 +1,43 @@
+title: 'Process Flow With CTA Section'
+fields:
+  -
+    handle: section_title
+    field:
+      type: text
+      display: 'Section Title'
+  -
+    handle: button
+    field:
+      max_rows: 1
+      type: grid
+      display: 'CTA Button'
+      fields:
+        -
+          handle: text
+          field:
+            type: text
+            display: Text
+        -
+          handle: link
+          field:
+            type: text
+            display: Link
+  -
+    handle: steps
+    field:
+      max_rows: 5
+      min_rows: 3
+      type: grid
+      display: Steps
+      fields:
+        -
+          handle: heading
+          field:
+            type: text
+            display: Heading
+        -
+          handle: description
+          field:
+            character_limit: 200
+            type: textarea
+            display: Description

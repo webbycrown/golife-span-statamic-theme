@@ -1,0 +1,19 @@
+<section class="2xl:my-20 lg:my-14 my-12">
+    <div class="container">
+        <div class="flex flex-wrap">
+            {{ cards }}
+                <div
+                    class="border border-gray-200 2xl:px-10 xl:px-6 px-4 xl:py-8 py-6 -m-px bg-white lg:w-1/4 min-[575px]:w-1/2 w-full">
+                    <span
+                        class="xl:w-20 xl:h-20 w-16 h-16 shadow-[0_0px_0px_4px_rgba(8,61,49,0.15)] bg-primary-900 rounded-full flex items-center justify-center mx-0.5 "><img
+                            src="{{ icon }}" width="40" class="lg:w-9 lg:h-9 w-7 h-7 object-contain"
+                            alt="accident"></span>
+                    <p class="md:my-3.5 mt-2.5 xl:text-[22px] lg:text-xl text-lg text-gray-800 font-[600] ">
+                        {{ title }}
+                    </p>
+                    <p class="lg:text-lg text-md ">{{ description }}</p>
+                </div>
+            {{ /cards }}
+        </div>
+    </div>
+</section>

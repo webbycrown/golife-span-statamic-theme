@@ -1,0 +1,123 @@
+title: Customer
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+              width: 50
+          -
+            handle: full_name
+            field:
+              type: text
+              display: 'Full Name'
+              validate:
+                - required
+              width: 50
+          -
+            handle: email
+            field:
+              type: text
+              display: Email
+              width: 50
+          -
+            handle: password
+            field:
+              type: text
+              display: Password
+              visibility: read_only
+              width: 50
+          -
+            handle: gender
+            field:
+              options:
+                -
+                  key: female
+                  value: Fmale
+                -
+                  key: male
+                  value: Male
+                -
+                  key: Other
+                  value: Other
+              type: select
+              display: Gender
+              max_items: 1
+              width: 50
+              visibility: read_only
+          -
+            handle: education
+            field:
+              type: text
+              display: Education
+              visibility: read_only
+              width: 50
+          -
+            handle: occupation
+            field:
+              type: text
+              display: Occupation
+              visibility: read_only
+              width: 50
+          -
+            handle: pan_card_number
+            field:
+              type: text
+              display: 'PAN card number'
+              visibility: read_only
+              width: 50
+          -
+            handle: mobile_number
+            field:
+              antlers: true
+              type: text
+              display: 'Mobile number'
+              visibility: read_only
+              validate:
+                - required
+                - numeric
+          -
+            handle: adharcard_number
+            field:
+              type: integer
+              display: 'Adharcard number'
+              visibility: read_only
+              width: 50
+          -
+            handle: profile_image
+            field:
+              container: assets
+              type: assets
+              display: 'Profile Image'
+              max_files: 1
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: is_blocked
+            field:
+              type: toggle
+              display: Blocked
+  seo_meta:
+    display: 'SEO Meta'
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            import: seo_meta

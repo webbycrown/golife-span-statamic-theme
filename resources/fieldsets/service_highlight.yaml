@@ -1,0 +1,39 @@
+title: 'Service Highlight Section'
+fields:
+  -
+    handle: section_title
+    field:
+      type: text
+      display: 'Section Title'
+  -
+    handle: section_description
+    field:
+      character_limit: 250
+      type: textarea
+      display: 'Section Description'
+  -
+    handle: cards
+    field:
+      max_rows: 6
+      min_rows: 3
+      type: grid
+      display: Cards
+      fields:
+        -
+          handle: icon
+          field:
+            max_files: 1
+            container: assets
+            type: assets
+            display: Icon
+        -
+          handle: title
+          field:
+            type: text
+            display: Title
+        -
+          handle: short_description
+          field:
+            character_limit: 200
+            type: textarea
+            display: 'Short Description'

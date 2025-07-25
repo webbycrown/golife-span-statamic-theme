@@ -1,0 +1,45 @@
+tree:
+  -
+    id: e89cd736-f6a8-45d0-b718-c0be5f51e373
+    title: 'About Us'
+    children:
+      -
+        id: 009d64c5-6915-4a27-aa43-0eee294f2b96
+        title: 'Donate monthly'
+        url: /donate-monthly
+      -
+        id: cf8c7290-7d2c-4ded-8ace-69669db3ec1b
+        title: 'Success stories'
+        url: /success-stories
+      -
+        id: 1a9efdf4-925a-440e-a26b-15a0aac6c603
+        title: 'Latest news'
+        url: /latest-news
+      -
+        id: 9869d85c-53d8-425e-9a94-352b1bac0b7c
+        title: 'Contact us'
+        url: /contact-us
+  -
+    id: bba15546-b78e-4020-b3ca-2507d0d67161
+    title: Learn
+    children:
+      -
+        id: 91d64c28-8ea4-4423-9adb-c6f0996b21ee
+        title: 'How it works'
+        url: '/Start fundraising'
+      -
+        id: 2144d1de-24d8-4061-b574-aec0e7259f1e
+        title: 'Start fundraising'
+        url: /start-fundraising
+      -
+        id: f4e63d17-1f6f-464b-a00a-3bdd8fc8cd82
+        title: 'Browse fundraisers'
+        url: /browse-fundraisers
+      -
+        id: 59e8d7f0-3f7f-44dd-a245-a016061def52
+        title: 'Privacy policy'
+        url: /privacy-policy
+      -
+        id: bf3806cb-07e3-4df1-b367-695d74c167f4
+        title: 'Term & Conditions'
+        url: /term-conditions

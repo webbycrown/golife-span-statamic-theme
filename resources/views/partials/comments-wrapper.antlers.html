@@ -1,0 +1,16 @@
+<div class="lg:mb-6 mb-4 comment-item">
+    <div class="flex gap-3 items-center">
+        <p class="lg:text-lg text-md text-gray-800 font-[600]">
+            <span
+                class="lg:w-11 lg:h-11 w-9 h-9 inline-flex rounded-full items-center justify-center border border-primary-900 bg-[#E9F5F3] lg:text-[20px] text-lg font-bold text-primary-900 mr-4">
+                {{ user:title | truncate:1 | upper }}
+            </span>
+            {{ user:title }}
+        </p>
+        <span class="text-sm text-gray-400">
+            <span class="inline-block w-1 h-1 bg-gray-400 rounded-full mr-2 align-middle"></span>
+            {{ updated_at | relative }}
+        </span>
+    </div>
+    <p class="pl-14">“{{ comment }}”</p>
+</div>

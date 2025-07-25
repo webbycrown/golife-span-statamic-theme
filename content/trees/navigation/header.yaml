@@ -1,0 +1,21 @@
+tree:
+  -
+    id: 7cadaad0-927e-42fc-bf00-a25de8353139
+    title: 'How it works'
+    url: /how-it-works
+  -
+    id: bffbe14d-53ab-4c77-b6da-93f6d6ceccc5
+    title: 'Browse fundraisers'
+    url: /browse-fundraisers
+  -
+    id: 3fc9f683-99d7-4213-91a6-81ff18662df6
+    title: 'Donate monthly'
+    url: /donate-monthly
+  -
+    id: 10acae43-1793-4ae5-a31a-bf3fb00f47f3
+    title: Stories
+    url: /stories
+  -
+    id: 8874c7af-0aa3-4e1e-9540-e648fb742f33
+    title: News
+    url: /news

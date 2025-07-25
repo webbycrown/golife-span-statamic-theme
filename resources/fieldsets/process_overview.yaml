@@ -1,0 +1,69 @@
+title: 'Process Overview Section'
+fields:
+  -
+    handle: section_title
+    field:
+      type: text
+      display: 'Section Title'
+      validate:
+        - required
+  -
+    handle: section_description
+    field:
+      character_limit: 200
+      type: textarea
+      display: 'Section Description'
+      validate:
+        - required
+  -
+    handle: steps
+    field:
+      max_rows: 3
+      type: grid
+      display: 'Three-Step Grid'
+      validate:
+        - required
+      fields:
+        -
+          handle: icon
+          field:
+            max_files: 1
+            container: assets
+            type: assets
+            display: Image/Icon
+        -
+          handle: title
+          field:
+            type: text
+            display: Title
+        -
+          handle: short_description
+          field:
+            character_limit: 150
+            type: textarea
+            display: 'Short Description'
+  -
+    handle: button
+    field:
+      max_rows: 2
+      type: grid
+      display: 'Call-to-Action Buttons'
+      fields:
+        -
+          handle: text_field
+          field:
+            type: text
+            display: Text
+        -
+          handle: link
+          field:
+            type: text
+            display: Link
+  -
+    handle: support_prompt
+    field:
+      type: text
+      display: 'Support Prompt'
+  -
+    handle: social_media_text
+    field: common_setting.social_media_text

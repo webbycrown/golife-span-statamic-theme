@@ -1,0 +1,48 @@
+title: 'Support Banner Section'
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: description
+    field:
+      type: textarea
+      display: Description
+  -
+    handle: thumbnail_image
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: 'Thumbnail Image'
+  -
+    handle: caption
+    field:
+      type: text
+      display: caption
+  -
+    handle: button
+    field:
+      max_rows: 1
+      type: grid
+      display: Button
+      fields:
+        -
+          handle: text
+          field:
+            type: text
+            display: Text
+        -
+          handle: link
+          field:
+            type: text
+            display: Link
+  -
+    handle: main_image
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: 'Main Image'

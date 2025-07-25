@@ -1,0 +1,13 @@
+{
+  "name": "webbycrown/golife-span-statamic-theme",
+  "type": "statamic-starter-kit",
+  "description": "A beautiful donation theme for Statamic sites",
+  "require": {
+    "statamic/cms": "*"
+  },
+  "extra": {
+    "statamic": {
+      "starter-kit": true
+    }
+  }
+}

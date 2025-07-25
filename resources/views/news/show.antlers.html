@@ -1,0 +1,20 @@
+<section class="lg:py-12 py-8">
+    <div>
+        <div class="container max-w-[1000px]">
+            <p class="text-primary-900 font-medium text-md mb-3">Uncategories</p>
+            <h1 class=" mb-3 2xl:text-6xl lg:text-5xl text-3xl"><span class=" block">{{ title }}</h1>
+            <p class="lg:mb-6 mb-4">{{ description }}</p>
+            <div class="  flex items-center gap-3 text-gray-400">
+                <span
+                    class="lg:w-14 lg:h-14 md:w-11 md:h-11 w-9 h-9 bg-primary-900 inline-flex items-center justify-center lg:text-[22px] text-lg font-[600] rounded-full uppercase text-white">{{ author | truncate:1 | upper }}</span>
+                <p>
+                    <span class=" text-gray-800 font-[600] block md:text-md text-sm">{{ author }}</span>
+                    <span class="md:text-sm text-[12px] text-gray-400 block ">{{ updated_at format="F j, Y" }}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    {{ page_builder scope="block" }}
+            {{ partial src="page_builder/{type}" }}
+    {{ /page_builder }}
+</section>

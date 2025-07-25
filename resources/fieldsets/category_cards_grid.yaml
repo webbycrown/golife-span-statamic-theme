@@ -1,0 +1,37 @@
+title: 'Category Cards Grid Section'
+fields:
+  -
+    handle: section_title
+    field:
+      type: text
+      display: 'Section Title'
+  -
+    handle: section_description
+    field:
+      character_limit: 50
+      type: textarea
+      display: 'Section Description'
+  -
+    handle: cards
+    field:
+      type: grid
+      display: Cards
+      fields:
+        -
+          handle: icon
+          field:
+            max_files: 1
+            container: assets
+            type: assets
+            display: Image/Icon
+        -
+          handle: title
+          field:
+            type: text
+            display: Title
+        -
+          handle: subtext
+          field:
+            character_limit: 50
+            type: textarea
+            display: Subtext

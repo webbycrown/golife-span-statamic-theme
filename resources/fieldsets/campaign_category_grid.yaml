@@ -1,0 +1,39 @@
+title: 'Campaign Category Grid'
+fields:
+  -
+    handle: section_title
+    field:
+      type: text
+      display: 'Section Title'
+      validate:
+        - required
+  -
+    handle: limit
+    field:
+      type: integer
+      display: Limit
+      validate:
+        - required
+  -
+    handle: button
+    field:
+      max_rows: 1
+      type: grid
+      display: Button
+      validate:
+        - required
+      fields:
+        -
+          handle: text
+          field:
+            type: text
+            display: Text
+            validate:
+              - required
+        -
+          handle: link
+          field:
+            type: text
+            display: Link
+            validate:
+              - required

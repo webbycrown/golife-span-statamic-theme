@@ -1,0 +1,9 @@
+title: 'Payment Configuration'
+data:
+  razorpay_key: 
+  razorpay_secret: 
+  razorpay_status: true
+  stripe_public_key:
+  stripe_secret_key: 
+  stripe_webhook_secret:
+  stripe_status: true

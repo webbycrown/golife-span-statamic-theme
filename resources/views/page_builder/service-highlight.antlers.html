@@ -1,0 +1,17 @@
+<section class=" bg-primary-400 xl:py-12 py-8">
+    <div class="container">
+        <h2 class="text-center xl:mb-4 mb-3">{{section_title}}</h2>
+        <p class="mx-auto lg:max-w-[70%] text-center">{{section_description}}</p>
+        <div class="grid xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6 mt-8">
+            {{cards}}
+            <div class="bg-white border border-gray-200 rounded-lg shadow-input xl:p-8 p-6">
+                <span
+                    class="md:w-16 md:h-16 w-14 h-14 border border-primary-900 rounded-full bg-primary-400 flex items-center justify-center"><img
+                        src="{{icon}}" alt="donation"></span>
+                <p class="my-4 2xl:text-xl text-lg font-[600] leading-tight text-gray-800">{{title}}</p>
+                <p class=" 2xl:text-lg text-md">{{short_description}}</p>
+            </div>
+            {{/cards}}
+        </div>
+    </div>
+</section>

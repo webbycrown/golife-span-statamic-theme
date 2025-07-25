@@ -1,0 +1,592 @@
+{{ if !{session:customer_logged_in} }}
+    <script>
+        window.location.href = "/";
+    </script>
+{{ /if }}
+<section class="2xl:my-20 lg:my-14 my-12">
+    <div class="w-full my-3 container tabs-container lg:flex items-start gap-8 ">
+        <ul class="tabs-list vertical-tabs lg:min-w-[250px] mt-0">
+            <li data-tab="profile" class="tab-link current ">
+                <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M4.5 4.5C4.5 6.981 6.519 9 9 9C11.481 9 13.5 6.981 13.5 4.5C13.5 2.019 11.481 0 9 0C6.519 0 4.5 2.019 4.5 4.5ZM17 19H18V18C18 14.141 14.859 11 11 11H7C3.14 11 0 14.141 0 18V19H17Z"
+                        fill="currentcolor" />
+                </svg>
+
+                Profile
+            </li>
+            <li data-tab="donations" class="tab-link">
+                <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M19.9417 14.6475L15.75 18H10.125V16.875H14.6981C14.7999 16.8749 14.8997 16.8473 14.987 16.795C15.0743 16.7427 15.1457 16.6677 15.1937 16.578C15.2418 16.4883 15.2646 16.3873 15.2597 16.2856C15.2548 16.184 15.2225 16.0856 15.1661 16.0009L14.1671 14.5024C13.9622 14.1939 13.6841 13.941 13.3577 13.7661C13.0312 13.5912 12.6666 13.4998 12.2963 13.5H3.375C3.07663 13.5 2.79048 13.6185 2.5795 13.8295C2.36853 14.0405 2.25 14.3266 2.25 14.625V21.375C2.25 21.9717 2.48705 22.544 2.90901 22.966C3.33097 23.3879 3.90326 23.625 4.5 23.625H15.3439C15.8249 23.6251 16.3005 23.5224 16.7386 23.3237C17.1767 23.125 17.5673 22.835 17.8841 22.473L24.75 14.625L23.1165 14.0805C22.5821 13.9024 22.0115 13.8609 21.457 13.96C20.9024 14.059 20.3815 14.2954 19.9417 14.6475ZM21.6652 8.31375C22.1726 7.79062 22.4865 7.06725 22.4865 6.2685C22.4865 5.46975 22.1726 4.74637 21.6652 4.22325C21.4087 3.95548 21.1006 3.74231 20.7596 3.59654C20.4186 3.45078 20.0516 3.37542 19.6807 3.375C19.6807 3.375 18.2812 3.37162 16.875 4.82175C15.4688 3.37162 14.0692 3.375 14.0692 3.375C13.6985 3.37547 13.3316 3.45074 12.9907 3.5963C12.6497 3.74185 12.3416 3.95471 12.0847 4.22213C11.5774 4.74638 11.2635 5.46863 11.2635 6.26737C11.2635 7.06613 11.5774 7.79063 12.0847 8.31262L16.875 13.5L21.6652 8.31375Z"
+                        fill="currentcolor" />
+                </svg>
+                Donations
+            </li>
+            <li data-tab="subscriptions" class="tab-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M7 7.5C9.76142 7.5 12 6.38071 12 5C12 3.61929 9.76142 2.5 7 2.5C4.23858 2.5 2 3.61929 2 5C2 6.38071 4.23858 7.5 7 7.5Z"
+                        stroke="currentcolor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path
+                        d="M2 5C2 5 2 7.1193 2 8.5C2 9.8807 4.23857 11 7 11C9.7614 11 12 9.8807 12 8.5C12 7.6822 12 5 12 5"
+                        stroke="currentcolor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path
+                        d="M2 8.5C2 8.5 2 10.6193 2 12C2 13.3807 4.23857 14.5 7 14.5C9.7614 14.5 12 13.3807 12 12C12 11.1822 12 8.5 12 8.5"
+                        stroke="currentcolor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path
+                        d="M2 12C2 12 2 14.1193 2 15.5C2 16.8807 4.23857 18 7 18C9.7614 18 12 16.8807 12 15.5C12 14.6822 12 12 12 12"
+                        stroke="currentcolor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path
+                        d="M2 15.5C2 15.5 2 17.6193 2 19C2 20.3807 4.23857 21.5 7 21.5C9.7614 21.5 12 20.3807 12 19C12 18.1822 12 15.5 12 15.5"
+                        stroke="currentcolor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path
+                        d="M17 14.5C19.7614 14.5 22 13.3807 22 12C22 10.6193 19.7614 9.5 17 9.5C14.2386 9.5 12 10.6193 12 12C12 13.3807 14.2386 14.5 17 14.5Z"
+                        stroke="currentcolor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path
+                        d="M12 12C12 12 12 14.1193 12 15.5C12 16.8807 14.2386 18 17 18C19.7614 18 22 16.8807 22 15.5C22 14.6822 22 12 22 12"
+                        stroke="currentcolor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path
+                        d="M12 15.5C12 15.5 12 17.6193 12 19C12 20.3807 14.2386 21.5 17 21.5C19.7614 21.5 22 20.3807 22 19C22 18.1822 22 15.5 22 15.5"
+                        stroke="currentcolor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                Subscriptions
+            </li>
+            <a class="tab-link logout" href="{{ route:customer.logout }}">
+                <svg width=" 23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M19.4966 16.4414H17.9176C17.8098 16.4414 17.7087 16.4885 17.6413 16.5717C17.4841 16.7626 17.3156 16.9467 17.1382 17.1219C16.4125 17.8484 15.5528 18.4274 14.6068 18.8267C13.6268 19.2407 12.5734 19.453 11.5095 19.4511C10.4336 19.4511 9.39142 19.24 8.41212 18.8267C7.46612 18.4274 6.60649 17.8484 5.88077 17.1219C5.15376 16.3979 4.57404 15.5398 4.17374 14.5951C3.75821 13.6158 3.54933 12.5759 3.54933 11.5C3.54933 10.4241 3.76046 9.38415 4.17374 8.40486C4.57355 7.45925 5.14855 6.60798 5.88077 5.878C6.613 5.14802 7.46427 4.57302 8.41212 4.17321C9.39142 3.75993 10.4336 3.5488 11.5095 3.5488C12.5854 3.5488 13.6275 3.75769 14.6068 4.17321C15.5547 4.57302 16.406 5.14802 17.1382 5.878C17.3156 6.05544 17.4818 6.23962 17.6413 6.42829C17.7087 6.5114 17.812 6.55857 17.9176 6.55857H19.4966C19.6381 6.55857 19.7257 6.40134 19.6471 6.2823C17.9243 3.60495 14.9101 1.83279 11.4848 1.84177C6.10314 1.85525 1.78839 6.2239 1.8423 11.5988C1.8962 16.8884 6.20421 21.1582 11.5095 21.1582C14.9258 21.1582 17.9266 19.3883 19.6471 16.7176C19.7234 16.5986 19.6381 16.4414 19.4966 16.4414ZM21.4934 11.3585L18.3062 8.84284C18.1871 8.74851 18.0142 8.83386 18.0142 8.98435V10.6914H10.9614C10.8626 10.6914 10.7817 10.7722 10.7817 10.8711V12.1289C10.7817 12.2277 10.8626 12.3086 10.9614 12.3086H18.0142V14.0156C18.0142 14.1661 18.1894 14.2514 18.3062 14.1571L21.4934 11.6415C21.5148 11.6247 21.5322 11.6032 21.5442 11.5787C21.5561 11.5542 21.5623 11.5272 21.5623 11.5C21.5623 11.4727 21.5561 11.4458 21.5442 11.4213C21.5322 11.3968 21.5148 11.3753 21.4934 11.3585Z"
+                        fill="currentcolor" />
+                </svg>
+                Log out
+            </a>
+        </ul>
+        <div class="tabcontent-wrap account-tabs p-0">
+            <div class="tabs-content current" id="profile">
+                {{ collection:customer id:contains="{{ session:customer_id }}" }}
+                    {{ full_name }}
+                    {{ /full_name }}
+                    {{ gender }}
+                    {{ /gender }}
+                    {{ occupation }}
+                    {{ /occupation }}
+                    {{ education }}
+                    {{ /education }}
+                    {{ pan_card_number }}
+                    {{ /pan_card_number }}
+                    {{ adharcard_number }}
+                    {{ /adharcard_number }}
+                    {{ email }}
+                    {{ /email }}
+                    {{ mobile_number }}
+                    {{ /mobile_number }}
+                    {{ profile_image }}
+                    {{ /profile_image }}
+
+                    {{ count_fields = ((full_name ? 1 : 0) + (gender ? 1 : 0) + (occupation ? 1 : 0) + (education ? 1 : 0) + (pan_card_number ? 1 : 0) + (adharcard_number ? 1 : 0) + (profile_image ? 1 : 0) + (email ? 1 : 0) + (mobile_number ? 1 : 0)) }}
+                    {{ percentage = (count_fields / 9) * 100 }}
+                    {{ percent_rounded = percentage | round }}
+                    <div class="flex items-center sm:flex-nowrap flex-wrap lg:gap-6 gap-3">
+                        <img id="profilePreview"
+                            src="{{ if profile_image }}{{ profile_image }}{{ else }}/assets/images/profile-image.png{{ /if }}"
+                            width="160" height="160" alt="profile"
+                            class="lg:w-40 w-32 lg:h-40 h-32 object-cover rounded-full">
+
+                        <div class="grow">
+                            <div class="flex items-center justify-between w-full gap-3">
+                                <p class="2xl:text-xl lg:text-lg text-md font-[600] text-gray-800">{{ title }}</p>
+                                <p class="2xl:text-lg lg:text-md text-sm font-medium">{{ percent_rounded }}% completed
+                                </p>
+                            </div>
+                            <div class="progressbar relative w-full h-1.5 bg-gray-200 sm:my-2.5 my-1.5 rounded-xl">
+                                <span class="fillbar absolute left-0 top-0 h-1.5 bg-primary-800 rounded-xl"
+                                    style="width: {{ percent_rounded }}%;"></span>
+                            </div>
+                            <a href="#" id="triggerImageUpload"
+                                class="text-primary-900 underline font-medium 2xl:text-lg lg:text-md">Update image</a>
+
+                            <form id="profileImageForm">
+                                {{ csrf_field }}
+                                <input type="hidden" name="id" value="{{ id }}">
+                                <input type="file" id="profileImageInput" name="profile_image" accept="image/*"
+                                    class="hidden">
+                            </form>
+                        </div>
+                    </div>
+                    <div id="uploadStatus"></div>
+
+                    <form class="global-form overflow-visible shadow-none p-0 bg-transparent my-8"
+                        id="updateProfileForm">
+                        {{ csrf_field }}
+                        <input type="hidden" name="id" value="{{ id }}">
+
+                        <div class="grid md:grid-cols-2 grid-cols-1 gap-x-8">
+                            <div class="input-wrap">
+                                <label>Full name <span class="text-danger">*</span> </label>
+                                <input class="custom-input" type="text" readonly name="title" value="{{ title }}"
+                                    placeholder="Enter name">
+                            </div>
+
+                            <div class="input-wrap">
+                                <label>Email address <span class="text-danger">*</span></label>
+                                <input class="custom-input" type="email" readonly name="email" value="{{ email }}"
+                                    placeholder="Enter your email address">
+                            </div>
+
+                            <div class="input-wrap">
+                                <label>Mobile number <span class="text-danger">*</span></label>
+                                <input class="custom-input" type="text" name="mobile" value="{{ mobile_number }}"
+                                    placeholder="Enter your phone number">
+                            </div>
+
+                            <div class="input-wrap">
+                                <label>Gender <span class="text-danger">*</span></label>
+                                <select class="custom-input" name="gender" id="gender">
+                                    <option disabled {{ if !gender }}selected{{ /if }}>Please select gender</option>
+                                    <option value="Male" {{ if gender=="Male" }}selected{{ /if }}>Male</option>
+                                    <option value="Female" {{ if gender=="Female" }}selected{{ /if }}>Female</option>
+                                    <option value="Other" {{ if gender=="Other" }}selected{{ /if }}>Other</option>
+                                </select>
+
+                            </div>
+
+                            <div class="input-wrap">
+                                <label>Occupation <span class="text-danger">*</span></label>
+                                <select name="occupation" class="custom-input">
+                                    <option disabled {{ if !occupation }}selected{{ /if }}>Please select occupation
+                                    </option>
+                                    <option value="Student" {{ if occupation=="Student" }}selected{{ /if }}>Student
+                                    </option>
+                                    <option value="Employed" {{ if occupation=="Employed" }}selected{{ /if }}>Employed
+                                    </option>
+                                    <option value="Self-Employed"
+                                        {{ if occupation=="Self-Employed" }}selected{{ /if }}>
+                                        Self-Employed</option>
+                                    <option value="Unemployed" {{ if occupation=="Unemployed" }}selected{{ /if }}>
+                                        Unemployed
+                                    </option>
+                                    <option value="Retired" {{ if occupation=="Retired" }}selected{{ /if }}>Retired
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="input-wrap">
+                                <label>Education <span class="text-danger">*</span></label>
+                                <select name="education" class="custom-input">
+                                    <option disabled {{ if !education }}selected{{ /if }}>Please select education
+                                    </option>
+                                    <option {{ if education=="No formal education" }}selected{{ /if }}>No formal
+                                        education
+                                    </option>
+                                    <option {{ if education=="Primary education" }}selected{{ /if }}>Primary education
+                                    </option>
+                                    <option {{ if education=="Secondary education" }}selected{{ /if }}>Secondary
+                                        education
+                                        or high school</option>
+                                    <option {{ if education=="GED" }}selected{{ /if }}>GED</option>
+                                    <option {{ if education=="Vocational qualification" }}selected{{ /if }}>Vocational
+                                        qualification</option>
+                                    <option {{ if education=="Bachelor's degree" }}selected{{ /if }}>Bachelor's degree
+                                    </option>
+                                    <option {{ if education=="Master's degree" }}selected{{ /if }}>Master's degree
+                                    </option>
+                                    <option {{ if education=="Doctorate or higher" }}selected{{ /if }}>Doctorate or
+                                        higher
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="input-wrap">
+                                <label>PAN card number</label>
+                                <input class="custom-input" type="text" name="pan" value="{{ pan_card_number }}"
+                                    placeholder="Enter 10 digit PAN number">
+                            </div>
+
+                            <div class="input-wrap">
+                                <label>Aadhaar card number</label>
+                                <input class="custom-input" type="number" name="aadhaar" value="{{ adharcard_number }}"
+                                    placeholder="Enter 12 digit Aadhaar number">
+                            </div>
+                        </div>
+
+
+                        <div
+                            class="xl:mt-3 xl:py-8 mt-3 py-5 border-t border-[#E3E3E3] grid lg:grid-cols-4 grid-cols-2 2xl:gap-8 gap-4">
+                            {{ total_amount = 0 }}
+                            {{ collection:donation donor_name:contains="{session:customer_id}" }}
+                                {{ if no_results }}
+                                    <div class="bg-white shadow-box sm:p-4 p-2 rounded-md">
+                                        <p class="text-primary-900 font-[600] 2xl:text-[22px] lg:text-xl text-lg mb-1">
+                                            {{ 0 }}
+                                        </p>
+                                        <p class="text-gray-400 font-medium lg:text-md text-sm leading-snug">Total
+                                            donations
+                                        </p>
+                                    </div>
+                                    <div class="bg-white shadow-box sm:p-4 p-2 rounded-md">
+                                        <p class="text-primary-900 font-[600] 2xl:text-[22px] lg:text-xl text-lg mb-1">
+                                            {{ 0 }}
+                                        </p>
+                                        <p class="text-gray-400 font-medium lg:text-md text-sm leading-snug">Total
+                                            donations
+                                            amount
+                                        </p>
+                                    </div>
+                                    <div class="bg-white shadow-box sm:p-4 p-2 rounded-md">
+                                        <p class="text-primary-900 font-[600] 2xl:text-[22px] lg:text-xl text-lg mb-1">
+                                            ₹{{ 0 }}</p>
+                                        <p class="text-gray-400 font-medium lg:text-md text-sm leading-snug">Last
+                                            donation
+                                            amount
+                                        </p>
+                                    </div>
+                                    <div class="bg-white shadow-box sm:p-4 p-2 rounded-md">
+                                        <p class="text-primary-900 font-[600] 2xl:text-[22px] lg:text-xl text-lg mb-1">
+                                            --
+                                        </p>
+                                        <p class="text-gray-400 font-medium lg:text-md text-sm leading-snug">Last
+                                            donation
+                                            date
+                                        </p>
+                                    </div>
+                                {{ else }}
+                                    {{ if amount_inr }}
+                                        {{ total_amount = total_amount + amount_inr }}
+                                    {{ else }}
+                                        {{ total_amount = total_amount + amount }}
+                                    {{ /if }}
+                                    {{ if last }}
+                                        <div class="bg-white shadow-box sm:p-4 p-2 rounded-md">
+                                            <p
+                                                class="text-primary-900 font-[600] 2xl:text-[22px] lg:text-xl text-lg mb-1">
+
+                                                {{ convert_currency from="{total_amount}" }}
+                                                    {{ formatted }} <span class="text-sm">({{ currency }})</span>
+                                                {{ /convert_currency }}
+                                            </p>
+                                            <p class="text-gray-400 font-medium lg:text-md text-sm leading-snug">Total
+                                                donations
+                                                amount
+                                            </p>
+                                        </div>
+                                        <div class="bg-white shadow-box sm:p-4 p-2 rounded-md">
+                                            <p
+                                                class="text-primary-900 font-[600] 2xl:text-[22px] lg:text-xl text-lg mb-1">
+                                                {{ total_results or 0 }}
+                                            </p>
+                                            <p class="text-gray-400 font-medium lg:text-md text-sm leading-snug">Total
+                                                donations
+                                            </p>
+                                        </div>
+                                    {{ /if }}
+                                    {{ if first }}
+                                        <div class="bg-white shadow-box sm:p-4 p-2 rounded-md">
+                                            <p
+                                                class="text-primary-900 font-[600] 2xl:text-[22px] lg:text-xl text-lg mb-1">
+                                                {{ updated_at format="d/m/y" }}
+                                            </p>
+                                            <p class="text-gray-400 font-medium lg:text-md text-sm leading-snug">Last
+                                                donation
+                                                date
+                                            </p>
+                                        </div>
+                                        <div class="bg-white shadow-box sm:p-4 p-2 rounded-md">
+                                            <p
+                                                class="text-primary-900 font-[600] 2xl:text-[22px] lg:text-xl text-lg mb-1">
+                                                {{ convert_currency from="{amount_inr}" }}
+                                                    {{ formatted }} <span class="text-sm">({{ currency }})</span>
+                                                {{ /convert_currency }}
+                                            </p>
+                                            <p class="text-gray-400 font-medium lg:text-md text-sm leading-snug">Last
+                                                donation
+                                                amount
+                                            </p>
+                                        </div>
+                                    {{ /if }}
+                                {{ /if }}
+                            {{ /collection:donation }}
+                        </div>
+
+                        <div id="updateResponse" class="mt-4 p-2 rounded hidden"></div>
+                        <button class="btn btn-secondary shadow-box mt-6 flex items-center gap-2" type="submit">Update Profile <span class="loader mx-small spinner hidden group-hover:animate-spin" style="display: none;"></span></button>
+
+                    </form>
+                {{ /collection:customer }}
+            </div>
+            <div class="tabs-content" id="donations">
+                <h3 class="xl:text-2xl md:text-1xl text-xl">My Donations</h3>
+                <div id="donation-list-wrapper">
+                    
+                    {{ total_amount = 0 }}
+                    {{ collection:donation donor_name:contains="{session:customer_id}" paginate="true" as="list" limit="5" donation_type:contains="One Time Funding" }}
+                    
+                        {{ list }}
+                            {{ total_amount = (total_amount + amount_inr) }}
+                            
+                                <!-- donation card block -->
+                                <div class="bg-white shadow-input rounded-md lg:mb-5 mb-3.5 last:mb-0 p-3 flex gap-4 sm:flex-nowrap flex-wrap relative">
+                                    <img src="{{ if campaign }} {{ campaign }} {{ thumb_img }} {{ /campaign }} {{ else }} {{ one_time_donation }} {{ image }} {{ /one_time_donation }}{{ endif }}" alt="donation" width="120" height="120" class="rounded object-cover w-[120px] h-[120px]">
+
+                                    <div class="grow">
+                                        <div class="flex items-center gap-3">
+                                            <p class="sm:text-lg text-md pr-8 leading-tight text-gray-800 font-[600] mb-1.5">
+                                            {{ if campaign }}{{ campaign }}{{ title }}{{ /campaign }} {{ else }} {{ one_time_donation }}{{ sub_title }} {{ /one_time_donation }}{{ endif }}
+                                        </p>
+                                        </div>
+                                       <p class="text-sm">{{ if campaign }}{{ campaign }}{{ thumb_description | truncate:200 }} {{ /campaign }} {{ else }} {{ one_time_donation }}{{ short_description | truncate:200 }} {{ /one_time_donation }} {{ endif }} </p>
+
+                                        <p class="text-sm font-medium mt-3 pt-3 border-t border-gray-200">Your
+                                            donation:
+                                            {{ if total_amount }}
+                                                {{ convert_currency from="{total_amount}" }}
+                                                    {{ formatted }} <span class="text-sm">({{ currency }})</span>
+                                                {{ /convert_currency }}
+                                                {{ total_amount = 0 }}
+                                                
+                                            {{ /if }}
+                                            
+                                            on {{ updated_at format="d M Y" }}
+                                        </p>
+                                    </div>
+                                </div>
+                                {{ /list }}
+                                <div class="text-center pt-5 pagination" id="pagination-wrapper">
+                {{ paginate }}
+                    {{ if prev_page }}
+                        <a href="{{ prev_page }}" data-url="{{ prev_page }}"
+                            class="pagination-link relative mr-2 border border-gray-700 inline-flex items-center justify-center p-1 2xl:w-11 2xl:h-11 lg:w-9 lg:h-9 w-8 h-8 text-black hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"
+                                style="transform: rotate(180deg);">
+                                <path
+                                    d="M1.22186 9.00031L16.7782 9.00034M16.7782 9.00034L9.3111 16.4674M16.7782 9.00034L9.31113 1.5333"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    {{ /if }}
+                    {{ links:all }}
+                        <a href="{{ url }}" data-url="{{ url }}"
+                            class="pagination-link text-black hover:bg-gray-50 relative inline-flex items-center justify-center p-1 2xl:w-11 2xl:h-11 lg:w-9 lg:h-9 w-8 h-8 lg:text-lg text-sm font-bold"
+                            style="{{ if current_page == page }}background:#f8d419;{{ /if }}">
+                            {{ page }}
+                        </a>
+                    {{ /links:all }}
+                    {{ if next_page }}
+                        <a href="{{ next_page }}" data-url="{{ next_page }}"
+                            class="pagination-link relative ml-2 border border-gray-700 inline-flex items-center justify-center p-1 2xl:w-11 2xl:h-11 lg:w-9 lg:h-9 w-8 h-8 text-black hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+                                <path
+                                    d="M1.22186 9.00031L16.7782 9.00034M16.7782 9.00034L9.3111 16.4674M16.7782 9.00034L9.31113 1.5333"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    {{ /if }}
+                {{ /paginate }}
+            </div>
+            {{ if no_results }}
+                <div class="text-center text-gray-600 py-6">
+                    <p>You have not donated yet.</p>
+                    <a href="/browse-fundraisers"
+                        class="inline-block mt-4 btn btn-secondary  text-white px-4 py-2 rounded-md hover:bg-primary-800">
+                        Start Donating Now
+                    </a>
+                </div>
+            {{ /if }}
+            {{ /collection:donation }}
+        </div>
+    </div>
+    <div class="tabs-content" id="subscriptions">
+        <h3 class="xl:text-2xl md:text-1xl text-xl">My Subscriptions</h3>
+        <div class="overflow-x-auto w-full" style="overflow-x: auto; white-space: nowrap;">
+            <table class="min-w-full bg-white border border-gray-300 rounded-md text-sm text-left">
+                <thead class="bg-gray-100 text-xs uppercase text-gray-600">
+                    <tr>
+                        <th class="p-3 bg-primary-900 text-white font-medium text-[15px]" style="text-transform: capitalize;">Payment Gateway</th>
+                        <th class="p-3 bg-primary-900 text-white font-medium text-[15px]" style="text-transform: capitalize;">Amount</th>
+                        <th class="p-3 bg-primary-900 text-white font-medium text-[15px]" style="text-transform: capitalize;">Interval</th>
+                        <th class="p-3 bg-primary-900 text-white font-medium text-[15px]" style="text-transform: capitalize;">Status</th>
+                        <th class="p-3 bg-primary-900 text-white font-medium text-[15px]" style="text-transform: capitalize;">Next Billing</th>
+                        <th class="p-3 bg-primary-900 text-white font-medium text-[15px]" style="text-transform: capitalize;">Auto Pay</th>
+                        <th class="p-3 bg-primary-900 text-white font-medium text-[15px]" style="text-transform: capitalize;">Cancel At</th>
+                        <th class="p-3 bg-primary-900 text-white font-medium text-[15px]" style="text-transform: capitalize;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="subscriptions-container" class="divide-y divide-gray-200 bg-white text-center">
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center hidden  subscriptions-not-found text-gray-600 py-6">
+            <p>You have not Subscriptions yet.</p>
+            <a href="/donate-monthly"
+                class="inline-block mt-4 btn btn-secondary  text-white px-4 py-2 rounded-md hover:bg-primary-800">
+                Start Subscriptions Now
+            </a>
+        </div>
+        <div id="subscription-message" class="hidden "></div>
+    </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById('subscriptions-container');
+        const messageEl = document.getElementById('subscription-message');
+        const csrf = document.querySelector('meta[name="csrf-token"]').content;
+
+        function showMessage(msg, success = true) {
+
+        }
+
+        function getStatusLabel(status) {
+            return status.charAt(0).toUpperCase() + status.slice(1).replaceAll('_', ' ');
+        }
+
+        function renderSubscription(sub) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+            <td class="px-3 py-3" style="text-align:left;">
+                <span class="inline-block px-2 py-1 text-xs font-medium rounded-full text-white" style="background-color:
+                    ${sub.gateway === 'stripe'
+                        ? '#875bab'
+                        : sub.gateway === 'razorpay'
+                            ? '#1a1ac9                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           '
+                            : 'gray '}; width: 75px; text-align: center;">
+                    ${sub.gateway ? sub.gateway.charAt(0).toUpperCase() + sub.gateway.slice(1) : '—'}
+                </span>
+            </td>
+        <td class="px-3 py-3">${sub.amount ?? '—'}</td>
+        <td class="px-3 py-3">${sub.interval ?? '—'}</td>
+        <td class="px-3 py-3">
+            <span class="text-xs font-semibold" style="color:
+                ${
+                    sub.status === 'cancelled' || sub.status === 'canceled'
+                        ? '#db000f'
+                        : sub.status === 'active' && sub.auto_pay_enabled
+                            ? 'green'
+                            : '#ebb63b'
+                }; text-align: center;">
+                ${
+                    sub.status === 'cancelled' || sub.status === 'canceled'
+                        ? 'Cancel'
+                        : sub.status === 'active' && sub.auto_pay_enabled
+                            ? 'Active'
+                            : 'Pause'
+                }
+            </span>
+        </td>
+
+        <td class="px-3 py-3">
+            ${sub.next_billing_at && sub.status !== 'canceled' && sub.auto_pay_enabled
+                ? sub.next_billing_at
+                : '—'}
+        </td>
+        <td class="px-3 py-3">
+            <span class="text-xs font-semibold" style="color:
+                ${sub.auto_pay_enabled && sub.status !== 'canceled'
+                    ? 'green'
+                    : '#db000f'}">
+                ${sub.auto_pay_enabled && sub.status !== 'canceled' ? 'Enable' : 'Disable'}
+            </span>
+        </td>
+        <td class="px-3 py-3">${sub.cancel_at || '—'}</td>
+         <td class="px-3 py-3">
+            ${sub.status !== 'cancelled' && sub.status !== 'canceled' ? `
+                ${!sub.auto_pay_enabled
+                    ? `<button class="resume-btn bg-primary-800 hover:!bg-gray-800 text-white px-2 py-1 rounded-full text-xs font-medium" style="background-color: #ff8f00;" data-id="${sub.subscription_id}" data-gateway="${sub.gateway}">Resume</button>`
+                    : `<button class="pause-btn bg-primary-800 hover:!bg-gray-800 hover:!text-white px-2 py-1 rounded-full text-xs font-medium" data-id="${sub.subscription_id}" data-gateway="${sub.gateway}">Pause</button>`}
+                <button class="cancel-btn hover:!bg-gray-800 hover:!text-white inline-block px-2 py-1 text-xs font-medium rounded-full text-white" style="background-color:#db000f" data-id="${sub.subscription_id}" data-gateway="${sub.gateway}">Cancel</button>
+            ` : `<span class="text-red-500 font-semibold text-xs text-center 
+            ">—</span>`}
+        </td>
+    `;
+            container.appendChild(row);
+        }
+
+        function fetchSubscriptions() {
+            container.innerHTML =
+                `<tr>
+                    <td colspan="8" class="px-4 py-6 text-center">
+                        <div class="flex items-center justify-center space-x-2 text-gray-500">
+                       <div class="spinner-loader"></div>
+                        </div>
+                    </td>
+                    </tr>`;
+            fetch('/stripe/subscriptions') // unified endpoint from Laravel backend
+                .then(res => res.json())
+                .then(data => {
+                    container.innerHTML = '';
+                    if (data.subscriptions && data.subscriptions.length > 0) {
+                        data.subscriptions.forEach(renderSubscription);
+                        attachEventListeners();
+                    } else {
+                        $('.table').hide();
+                        $('.subscriptions-not-found').show();
+                    }
+                })
+                .catch(() => {
+                    container.innerHTML =
+                        `<tr><td colspan="8" class="px-4 py-3 text-center text-red-600">Failed to load subscriptions.</td></tr>`;
+                });
+        }
+
+        function sendPost(url, subscriptionId) {
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrf
+                },
+                body: JSON.stringify({
+                    subscription_id: subscriptionId
+                })
+            }).then(res => res.json());
+        }
+
+        function attachEventListeners() {
+            const getEndpoint = (action, gateway) => {
+                if (gateway === 'razorpay') return `/razorpay/${action}-subscription`;
+                return `/stripe/${action}-subscription`;
+            };
+
+            document.querySelectorAll('.pause-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.dataset.id;
+                    const gateway = btn.dataset.gateway;
+                    const endpoint = getEndpoint('pause', gateway);
+                    sendPost(endpoint, id).then(data => {
+                        showMessage(data.status || data.error, !data.error);
+                        fetchSubscriptions();
+                    });
+                });
+            });
+
+            document.querySelectorAll('.resume-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.dataset.id;
+                    const gateway = btn.dataset.gateway;
+                    const endpoint = getEndpoint('resume', gateway);
+                    sendPost(endpoint, id).then(data => {
+                        showMessage(data.status || data.error, !data.error);
+                        fetchSubscriptions();
+                    });
+                });
+            });
+
+            document.querySelectorAll('.cancel-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (!confirm('Are you sure you want to cancel this subscription?')) return;
+                    const id = btn.dataset.id;
+                    const gateway = btn.dataset.gateway;
+                    const endpoint = getEndpoint('cancel', gateway);
+                    sendPost(endpoint, id).then(data => {
+                        showMessage(data.status || data.error, !data.error);
+                        fetchSubscriptions();
+                    });
+                });
+            });
+        }
+
+        fetchSubscriptions();
+    });
+</script>

@@ -1,0 +1,67 @@
+{{ group_field }}
+    <section class="lg:-mt-12 -mt-8 z-1 relative">
+        <div class="container">
+            <div
+                class="bg-white shadow-lg lg:py-8 md:py-6 py-4 lg:px-10 md:px-6 px-3 funding-form rounded-md tabs-container">
+
+                <ul class="tabs-list">
+                    {{ replicator }}
+                        <li data-tab="{{ fund_type }}" class="tab-link button-link {{ if first }}  current{{ /if }}">
+                            {{ button_text }}
+                        </li>
+                    {{ /replicator }}
+                </ul>
+
+                {{ replicator }}
+                    <div class="tabs-content {{ if first }}block{{ else }}hidden{{ /if }}" id="{{ fund_type }}">
+                        <div class="flex items-center 1xl:gap-6 gap-3 xl:flex-nowrap flex-wrap lg:w-auto w-full">
+                            <div
+                                class="amount-select grid sm:grid-cols-4 grid-cols-2 border border-gray-200 rounded-md py-1 px-1 gap-2  lg:w-auto w-full my-4 bg-white">
+                                {{ fund_amount }}
+                                    <input type="radio" id="amount-{{ fund_type }}-{{ count }}"
+                                        name="amount-{{ fund_type }}" value="{{ amount }}" class="peer hidden" />
+
+                                    <label for="amount-{{ fund_type }}-{{ count }}"
+                                        class="selectamount w-full text-center rounded-md border border-gray-200 font-semibold peer-checked:bg-primary-900 peer-checked:text-white peer-checked:border-primary-900 transition cursor-pointer flex items-center justify-center"
+                                        data-amount="{{ amount }}" data-fund-type="{{ fund_type }}"
+                                        style="padding: 0.65rem 0.5rem;">
+                                        ₹{{ amount }}
+                                    </label>
+                                {{ /fund_amount }}
+                            </div>
+
+                            <div
+                                class="amount-select flex border border-gray-200 rounded-md py-1.5 px-2.5 gap-2 lg:w-auto w-full">
+                                <span
+                                    class="after:content-['|'] after:absolute after:right-8 after:top-[6px] after:text-gray-400/20 relative">
+                                    <select name="currency-{{ fund_type }} " id="currency-{{ fund_type }}"
+                                        class="currencys bg-transparent min-w-[120px] tracking-wider cursor-pointer focus-visible:outline-none border border-gray-200 rounded-md py-1.5 text-md font-medium text-gray-400 custom-input">
+                                        {{ exchange_rates:currency_rate }}
+                                            <option value="{{ currency }}">
+                                                {{ if symbols }}
+                                                    {{ symbols }}
+                                                {{ /if }}{{ currency }}
+                                            </option>
+                                        {{ /exchange_rates:currency_rate }}
+                                    </select>
+                                </span>
+                                <input type="number" id="customAmount-{{ fund_type }}" placeholder="Converted amount"
+                                    class="bg-primary-400 rounded-md py-1.5 lg:text-lg text-md font-medium text-gray-400 px-3.5 max-w-full w-full grow">
+                            </div>
+
+                            <button id="payBtn-{{ fund_type }}" type="button" data-fund-type="{{ fund_type }}"
+                                class="btn btn-secondary py-2.5 leading-normal 1xl:px-6 px-5 md:w-auto w-full submit payBtn">
+                                {{ pay_button_text }} <span class="hidden"
+                                    id="displayAmount-{{ fund_type }}">0</span>
+                            </button>
+                        </div>
+                        <p id="amountError-{{ fund_type }}" class="text-sm text-red-500 mt-1" style="color:red"></p>
+                        <p class="text-sm text-gray-400 italic mt-4">{{ note }}
+                        </p>
+                    </div>
+                {{ /replicator }}
+            </div>
+        </div>
+    </section>
+{{ /group_field }}
+

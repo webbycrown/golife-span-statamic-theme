@@ -1,0 +1,31 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: currency_rate
+            field:
+              max_rows: 10
+              type: grid
+              display: 'Currency Rate'
+              fields:
+                -
+                  handle: currency
+                  field:
+                    type: text
+                    display: Currency
+                    width: 50
+                -
+                  handle: rate
+                  field:
+                    type: float
+                    display: Rate
+                    width: 50
+                -
+                  handle: symbols
+                  field:
+                    character_limit: 1
+                    type: text
+                    display: Symbols

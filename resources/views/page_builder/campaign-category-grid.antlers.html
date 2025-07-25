@@ -1,0 +1,26 @@
+<section class="2xl:my-20 lg:my-14 my-12">
+    <div class="container fundraiser-tabs tabs-container">
+        <h2 class="text-center xl:mb-4 mb-3">Hope in Healing: Donate to save them!</h2>
+        <ul class="tabs-list">
+            <li data-category="all" class="tab-link  categories-link current">All</li>
+            {{ taxonomy:treatment_categories sort="random" limit="7" }}
+                {{ collection:campaigns categories:contains="{slug}" limit="1" }}
+                    {{ if no_results }}
+                    {{ else }}
+                        <li class="tab-link  categories-link" data-category="{{ categories:slug }}">
+                            {{ categories:title }}
+                        </li>
+                    {{ /if }}
+                {{ /collection:campaigns }}
+            {{ /taxonomy:treatment_categories }}
+        </ul>
+        <div id="fundraiser-lists" class="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6" data-limit="{{limit}}"></div>
+    </div>
+    <div class="xl:mt-10 mt-5 text-center flex items-center justify-center sm:gap-5 gap-2 sm:flex-row flex-col">
+        {{ button }}
+            <a href="{{ link }}" class="btn btn-secondary">{{ text }}</a>
+        {{ /button }}
+    </div>
+    </div>
+</section>
+

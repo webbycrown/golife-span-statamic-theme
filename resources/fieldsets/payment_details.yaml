@@ -1,0 +1,53 @@
+title: 'Payment Details'
+fields:
+  -
+    handle: heading
+    field:
+      type: text
+      display: Heading
+      validate:
+        - required
+  -
+    handle: sub_content
+    field:
+      type: textarea
+      display: 'Sub Content'
+      validate:
+        - required
+  -
+    handle: form_title
+    field:
+      type: text
+      display: 'Form Title'
+      validate:
+        - required
+  -
+    handle: form_button_text
+    field:
+      type: text
+      display: 'Form Button Text'
+      validate:
+        - required
+  -
+    handle: form_note
+    field:
+      type: text
+      display: 'Form Note'
+      validate:
+        - required
+  -
+    handle: monthly_funding_descriptions
+    field:
+      remove_empty_nodes: false
+      type: bard
+      display: 'Monthly Funding Descriptions'
+      validate:
+        - required
+  -
+    handle: one_time_funding_descriptions
+    field:
+      remove_empty_nodes: false
+      type: bard
+      display: 'One Time Funding Descriptions'
+      validate:
+        - required

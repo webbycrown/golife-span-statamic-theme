@@ -1,0 +1,55 @@
+title: Story
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: name
+            field:
+              type: text
+              display: Name
+              instructions: 'The Story Person Name'
+      -
+        display: 'Page Builder'
+        fields:
+          -
+            import: page_builder
+  seo_meta:
+    display: 'SEO Meta'
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            import: seo_meta
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: categories
+            field:
+              max_items: 1
+              mode: select
+              taxonomies:
+                - treatment_categories
+              type: terms
+              display: Categories
+              validate:
+                - required

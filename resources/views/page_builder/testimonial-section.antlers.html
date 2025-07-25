@@ -1,0 +1,75 @@
+<section class="2xl:my-20 lg:my-14 my-12">
+    <div class="container">
+        <h2 class="text-center xl:mb-4 mb-3">{{ section_title }}</h2>
+        <p class="mx-auto lg:max-w-[70%] text-center">{{ section_description }}</p>
+        <div class="overflow-hidden md:px-6 lg:mt-8 mt-6">
+            <div class="swiper SuccessSlider md:-mx-6 !overflow-visible">
+                <div class="swiper-wrapper">
+                    {{ stories }}
+                        {{ page_builder }}
+                            {{ if type == "featured-story-banner" }}
+                                <div class="swiper-slide ">
+                                    <div
+                                        class="bg-gray-100 rounded-md p-4 flex lg:gap-10 gap-6 lg:flex-nowrap flex-wrap h-full">
+                                        <div class="lg:w-1/4 w-full ">
+                                            <img src="{{ thumb_image }}" alt="success stories"
+                                                class="lg:w-auto w-full lg:h-full lg:max-h-none max-h-[350px] object-cover rounded-lg">
+                                        </div>
+                                        <div class="lg:w-3/4 w-full flex flex-col py-3">
+                                            <h3 class="italic mb-3 xl:text-2xl text-xl">Meet {{ name }},</h3>
+                                            <span class="block w-14 h-1 bg-primary-800 rounded-lg"></span>
+                                            <p class="2xl:text-xl lg:text-lg text-md font-medium my-3 text-gray-800">
+                                                {{ title }}</p>
+                                            <p class="2xl:text-lg text-md font-medium lg:pr-6">
+                                                {{ thumb_description | truncate:300 }} ...</p>
+                                            <a class="text-primary-900 hover:text-gray-800 my-3 font-medium 2xl:text-lg text-md inline-flex items-center gap-1.5 group"
+                                                href="{{ url }}"> <span class="underline">Read more </span> <svg
+                                                    width="11" height="11" viewBox="0 0 11 11" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="transition-all group-hover:translate-x-1 -mb-[2px]">
+                                                    <g>
+                                                        <path
+                                                            d="M10.3869 5.49998L5.83505 0.623047L4.79812 1.73405L8.31299 5.49998L4.79812 9.2659L5.83505 10.3769L10.3869 5.49998ZM6.24352 5.49998L1.69172 0.623047L0.654785 1.73405L4.16965 5.49998L0.654785 9.2659L1.69172 10.3769L6.24352 5.49998Z"
+                                                            fill="currentcolor" />
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                            <div
+                                                class="mt-auto pt-2 border-t border-primary-900/5 flex items-center justify-between flex-wrap gap-2">
+                                                <p class="flex items-center gap-2 text-md "><img
+                                                        src="./assets/images/check-flower.svg" alt="fund"> <span
+                                                        class="font-bold text-gray-800">
+                                                        {{ convert_currency from="{fund_amount_inr}" }}
+                                                            {{ formatted }}
+                                                    </span>
+                                                    {{ /convert_currency }}
+                                                    </span> successfully raised
+                                                </p>
+                                                <a class="text-primary-900 hover:text-gray-800 font-medium 2xl:text-lg text-md inline-flex items-center gap-1.5 group"
+                                                    href="/stories"> <span class="underline">Read all stories </span>
+                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        class="transition-all group-hover:translate-x-1 -mb-[2px]">
+                                                        <g>
+                                                            <path
+                                                                d="M10.3869 5.49998L5.83505 0.623047L4.79812 1.73405L8.31299 5.49998L4.79812 9.2659L5.83505 10.3769L10.3869 5.49998ZM6.24352 5.49998L1.69172 0.623047L0.654785 1.73405L4.16965 5.49998L0.654785 9.2659L1.69172 10.3769L6.24352 5.49998Z"
+                                                                fill="currentcolor" />
+                                                        </g>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{ /if }}
+                        {{ /page_builder }}
+                    {{ /stories }}
+                </div>
+                <div class="md:block flex justify-center items-center gap-3 pb-3">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

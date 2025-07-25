@@ -1,0 +1,113 @@
+{{ footer }}
+    <footer class="bg-primary-900">
+        <div class="container">
+            <div class="xl:py-12 py-8 border-b border-white/10">
+                <h2
+                    class="text-white text-center max-w-[1000px] mx-auto 2xl:text-5xl xl:text-3xl md:text-2xl text-1xl ">
+                    {{ text }}
+                </h2>
+                <div class="text-center lg:mt-6 mt-4">
+                    {{ button }}
+                        <a href="{{ link }}" class="btn btn-secondary hover:!bg-gray-800 inline-block">{{ text }}</a>
+                    {{ /button }}
+                </div>
+            </div>
+            <div class="flex xl:my-12 md:my-8 my-5 lg:flex-nowrap flex-wrap">
+                <div class="lg:w-[28%] sm:w-1/2 w-full lg:order-1 lg:mb-0 mb-5">
+                    <div class="sm:max-w-fit ">
+                        <a href="{{ site:url }}">
+                            <img src="{{ logo }}" alt="site-logo" width="160" height="70"
+                                class="sm:mx-0 mx-auto lg:max-w-40 max-w-32" />
+                        </a>
+                        <hr class="border-t border-white/10 lg:my-6 my-4 sm:block hidden" />
+                        <ul class="flex items-center gap-5 sm:justify-start justify-center sm:mt-0 mt-4">
+                            {{ social_media }}
+                                <li>
+                                    <a href="{{ link }}" class="text-white hover:text-primary-800">
+                                        <img src="{{ icon }}" alt="">
+
+                                    </a>
+                                </li>
+                            {{ /social_media }}
+
+                        </ul>
+                    </div>
+                    <p class="text-white font-medium leading-relaxed mt-4 lg:mt-6 sm:text-left text-center">
+                        {{ heading }}<br />
+                        {{ contact_info }}
+                            {{ if type == "email" }}
+                                {{ text_field }}: <a href="mailto:{{ value }}"
+                                    class="font-light hover:underline">{{ value }}</a> <br />
+                            {{ /if }}
+                            {{ if type == "phone" }}
+                                {{ text_field }}: <a href="tel:{{ value }}"
+                                    class="font-light  hover:underline">{{ value }}</a>
+                            {{ /if }}
+                        {{ /contact_info }}
+                    <p>
+                    </p>
+                </div>
+                <div class="lg:w-[20%] w-1/2 lg:order-2 sm:order-3 sm:mb-0 mb-5  sm:text-left text-center">
+                    <p class="text-white font-[600] lg:mb-6 mb-3">{{ about_us }}</p>
+                    <ul>
+                        {{ grid_about_us }}
+                            <li class="mb-3 lg:mb-4 last:mb-0"><a href="{{ link }}"
+                                    class="text-white hover:opacity-65 font-light transition-all ">{{ text }}</a></li>
+                        {{ /grid_about_us }}
+                    </ul>
+                </div>
+                <div class="lg:w-[18%] w-1/2 lg:order-3 sm:order-4  sm:mb-0 mb-5  sm:text-left text-center">
+                    <p class="text-white font-[600] lg:mb-6 mb-3">{{ learn }}</p>
+                    <ul>
+                        {{ grid_learn }}
+                            <li class="mb-3 lg:mb-4 last:mb-0"><a href="{{ link }}"
+                                    class="text-white hover:opacity-65 font-light transition-all ">{{ text }}</a></li>
+                        {{ /grid_learn }}
+                </div>
+                <div
+                    class="lg:w-[30%] sm:w-1/2  w-full lg:order-4 sm:order-2  lg:mb-0 sm:mb-5  sm:text-left text-center">
+                    <p class="text-white font-[600] lg:mb-6 mb-3">{{ title }}</p>
+                    {{#
+                        {{ form:newsletter id="newsletter-form" success_redirect="false" }}
+                            {{ fields }}
+                                {{ if type == "text" }}
+                                    <input type="{{ input_type }}" placeholder="{{ display }}" name="{{ handle }}"
+                                        class="bg-white/5 border border-white/10 text-white px-5 py-3 rounded-md w-full placeholder:text-white focus-visible:outline-none focus-visible:border-white/40">
+                                {{ /if }}
+                            {{ /fields }}
+                            <p id="newsletter-response" class="text-red-600 text-sm mt-2"></p>
+                        
+                        
+                            <button type="submit" class="btn btn-secondary mt-4 py-3 hover:!bg-gray-800">{{ button_text }}</button>
+                        {{ /form:newsletter }}
+                    #}}
+                    <form id="newsletter-form">
+                        {{ csrf_field }}
+                        <input type="email" placeholder="Enter your email" name="email" id="email"
+                            class="bg-white/5 border border-white/10 text-white px-5 py-3 rounded-md w-full placeholder:text-white focus-visible:outline-none focus-visible:border-white/40">
+                        <p class="form-message text-sm mt-1" style="/*display:none; margin: 0;*/ padding: 0; text-align: left;"></p>
+                        <button type="submit" class="btn btn-secondary hover:!bg-gray-800 inline-block mt-4">Subscribe</button>
+                    </form>
+                    <p class="text-[12px] text-white font-light mt-4">{{ update_description }}</p>
+                </div>
+            </div>
+            <div
+                class="border-t border-white/10 flex items-center lg:justify-between py-2 lg:flex-nowrap flex-wrap justify-center gap-2">
+                <p class="text-white mb-0 font-light lg:text-left text-center w-full">{{ copyright_text }}</p>
+                <img src="{{ payment_image:url }}" width="416" height="30" alt="payment" class="" />
+            </div>
+        </div>
+        <div class="bg-white/5">
+            <div class="container">
+                <div class="accordian">
+                    <a href="#" class="accordian-title text-white block py-3.5 relative font-[500]">
+                        {{ accordion_block_title }}
+                    </a>
+                    <div class="accordian-content  accordian-content-footer hidden text-white">
+                        {{ accordion_block }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+{{ /footer }}

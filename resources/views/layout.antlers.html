@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="app-env" content="{{ config:app.env }}">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  {{ if {session:customer_logged_in} }}
+    <meta name="customer-logged-in" content="true">
+  {{ else }}
+    <meta name="customer-logged-in" content="false">
+  {{ /if }}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ title ?? site:name }}</title>
+
+  <!-- Primary Meta Tags -->
+
+  <meta name="title" content="{{ meta_title ?? title }}">
+  <meta name="description" content="{{ meta_description }}">
+  <meta name="keywords" content="{{ keywords }}">
+  <meta name="author" content="{{ site:author }}">
+  <link rel="canonical" href="{{ current_url }}" />
+
+
+
+  <meta property="og:title" content="{{ meta_title ?? title }}">
+  <meta property="og:description" content="{{ meta_description }}">
+  <meta property="og:site_name" content="GoLife Span">
+  <meta property="og:image" content="{{ link to="{{meta_image:url}}" absolute="true" }}">
+  <meta property="og:image:secure_url" content="{{ link to="{{meta_image:url}}" absolute="true" }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Preview Image for home">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ current_url }}">
+  <meta name="twitter:title" content="{{ meta_title ?? title }}">
+  <meta name="twitter:description" content="{{ meta_description }}">
+  <meta name="twitter:image" content="{{ link to="{{meta_image:url}}" absolute="true" }}">
+  <meta name="twitter:image:secure_url" content="{{ link to="{{meta_image:url}}" absolute="true" }}">
+  <meta name="twitter:image:width" content="1200">
+  <meta name="twitter:image:height" content="630">
+
+  {{# {{ glide src="{meta_image:url}" absolute='true' }} #}}
+  <!-- Favicon -->
+  <link rel="icon" href="{{ common_setting:favicon }}" type="image/png">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{{ theme:asset src='assets/css/style.css' }}?v={{ now format="YmdHis" }}">
+  <link rel="stylesheet" href="{{ theme:asset src='assets/css/swiper-bundle.min.css' }}?v={{ now format="YmdHis" }}">
+  <link rel="stylesheet" href="{{ theme:asset src='assets/css/magnific-popup.css' }}?v={{ now format="YmdHis" }}">
+  <link rel="stylesheet" href="{{ theme:asset src='assets/css/dropzone.min.css' }}?v={{ now format="YmdHis" }}" type="text/css">
+
+
+
+  <!-- Vite Assets -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  {{ vite src="resources/js/site.js|resources/css/site.css" }}
+</head>
+
+<body>
+
+  {{ partial:header }}
+  {{ template_content }}
+  {{ partial:footer }}
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const key = "selected_currency";
+      const defaultValue = "INR";
+      const stored = localStorage.getItem(key) || defaultValue;
+
+      // Set cookie from localStorage (JS-controlled)
+      document.cookie = `${key}=${stored}; path=/;`;
+
+      const select = document.getElementById("currency");
+      if (select) {
+        select.value = stored;
+        select.addEventListener("change", function() {
+          localStorage.setItem(key, this.value);
+          document.cookie = `${key}=${this.value}; path=/;`;
+          location.reload();
+        });
+      }
+    });
+  </script>
+  <script>
+    window.APP_CONFIG = {
+      csrf: '{{ csrf_token }}',
+      razorpay_key: '{{ payment_configuration:razorpay_key }}',
+      stripe_key: '{{ payment_configuration:stripe_public_key }}'
+    };
+  </script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <script src="{{ theme:asset src='assets/js/common.js??ver={{ now format='YmdHis' }}' }}"></script>
+
+
+  <script src="{{ theme:asset src='assets/js/jquery.min.js' }}"></script>
+
+  <!-- Swiper bundle js file -->
+  <script src="{{ theme:asset src='assets/js/swiper-bundle.min.js' }}"></script>
+
+  <!-- Magnific popup js -->
+  <script src="{{ theme:asset src='assets/js/jquery.magnific-popup.js' }}"></script>
+
+  <!-- Dropzone js -->
+  <script src="{{ theme:asset src='assets/js/dropzone.min.js' }}"></script>
+
+  <!-- Custom js -->
+  <script src="{{ theme:asset src='assets/js/custom.js' }}?v={{ now format="YmdHis" }}"></script>
+
+</body>
+
+</html>

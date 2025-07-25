@@ -1,0 +1,84 @@
+<div class="w-[280px] shrink-0 bg-white rounded-md shadow-box fundraiser-item">
+
+    <div class="relative w-full">
+        <a href="{{ url }}">
+            <img src="{{ thumb_img:url }}" alt="Fundraiser item" class="w-full f-img rounded-t-md" width="320"
+                height="190">
+        </a>
+        {{ date }}
+        {{ if end_date < {{current_date}} }}
+             <div class="absolute inset-0 flex bg-primary-800 px-2.5 py-1 rounded-[0_0_0_10px] right-0 top-0"
+                            style="border-radius: 0 0 0 10px;">
+                        <span class="text-primary-900 text-sm font-medium">Campaign is Over</span>
+                </div>
+        {{ /if }}
+    </div>
+    <div class="p-4">
+        <a class="title" href="{{ url }}">{{ title }}
+        </a>
+        {{ collection:author id:in="{author}" }}
+            <div class="fund-worker">
+                <span class="avatar">{{ title | truncate:1 | upper }}</span>
+                <span class="name">{{ title }}</span>
+            </div>
+        {{ /collection:author }}
+        <p class="fund-amount">
+            {{ convert_currency from="{total_raised_fund}" }}
+                {{ formatted }}
+            {{ /convert_currency }}
+
+            {{ convert_currency from="{total_funds}" }}
+                raised out of {{ formatted }}</span>
+            {{ /convert_currency }}
+        </p>
+        {{ if total_funds }}
+            {{ percentage = (total_raised_fund / total_funds) * 100 }}
+        {{ /if }}
+        <div class="progressbar">
+            <span class="fillbar " style="width: {{ percentage }}%;"></span>
+        </div>
+        <div class="w-full text-center mt-3">
+            <div class="flex items-center justify-center gap-2 text-sm text-gray-700 justify-between">
+                <span class="contributor flex items-center gap-1">
+                    <img src="/assets/images/ph_heart-fill.svg" width="18" height="18" alt="heart">
+                    {{ total_contributors }} Contributors
+                </span>
+
+                <button class="share-toggle flex items-center gap-1" onclick="toggleShareDropdown(this)">
+                    <img src="/assets/images/share.svg" width="16" height="16" alt="share">
+                    Share
+                </button>
+            </div>
+
+            <!-- 🔻 Horizontal Share Dropdown (below, centered) -->
+            <div
+                class="share-dropdown hidden mt-2 flex justify-center gap-4 bg-black text-white rounded px-4 py-2 shadow-md">
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ glide src='{url}' absolute='true' }}"
+                    target="_blank">
+                    <img src="/assets/images/facebook-icon.svg" width="20" height="20" alt="Facebook">
+                </a>
+                <a href="https://twitter.com/intent/tweet?url={{ glide src='{url}' absolute='true' }}&text={{ title }}"
+                    target="_blank">
+                    <img src="/assets/images/twiter-icon.svg" width="20" height="20" alt="Twitter">
+                </a>
+                <a href="https://wa.me/?text={{ title }}%20{{ glide src='{url}' absolute='true' }}" target="_blank">
+                    <img src="/assets/images/whatsapp-icon.svg" width="20" height="20" alt="WhatsApp">
+                </a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ glide src='{url}' absolute='true' }}&title={{ title }}"
+                    target="_blank">
+                    <img src="/assets/images/linkdin-icon.svg" width="20" height="20" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
+        <a class="btn btn-primary" href="{{ url }}">Contribute <svg width="11" height="12" viewBox="0 0 11 9"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <path d="M7.7459 0.259613H4.8584L8.06673 4.5L4.8584 8.74038H7.7459L10.9542 4.5L7.7459 0.259613Z"
+                        fill="currentcolor" />
+                    <path d="M3.2542 0.259613H0.366699L3.57503 4.5L0.366699 8.74038H3.2542L6.46253 4.5L3.2542 0.259613Z"
+                        fill="currentcolor" />
+                </g>
+            </svg>
+        </a>
+    </div>
+</div>

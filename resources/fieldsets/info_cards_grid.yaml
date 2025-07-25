@@ -1,0 +1,27 @@
+title: 'Info Cards Grid'
+fields:
+  -
+    handle: cards
+    field:
+      min_rows: 4
+      type: grid
+      display: Cards
+      fields:
+        -
+          handle: icon
+          field:
+            max_files: 1
+            container: assets
+            type: assets
+            display: 'Image / Icon'
+        -
+          handle: title
+          field:
+            type: text
+            display: Title
+        -
+          handle: description
+          field:
+            character_limit: 200
+            type: textarea
+            display: Description

@@ -1,0 +1,19 @@
+<section>
+    <div class="flex items-stretch lg:flex-nowrap flex-wrap bg-primary-900">
+        <div class="lg:w-2/5 w-full">
+            <img src="./assets/images/home-hero.jpg" width="825" height="640" alt="Hope in Health"
+                class="w-full h-full object-cover">
+        </div>
+        <div class="lg:w-3/5 w-full 2xl:p-20 lg:p-14 sm:p-8 px-6 py-8 self-center max-w-[850px]">
+            <h1 class="text-white lg:mb-6 mb-4"><span class="text-primary-800 block">{{ title }}</span> {{ subtitle }}
+            </h1>
+            <p class="text-white 2xl:text-xl lg:text-lg text-md lg:mb-8 mb-4">{{ short_description }}</p>
+            {{ button }}
+                <a class="btn btn-secondary shadow-lg hover:!bg-gray-800" href="{{ link }}">{{ text_field }}</a>
+            {{ /button }}
+            <div class="lg:mt-12 mt-8">
+
+            </div>
+        </div>
+    </div>
+</section>

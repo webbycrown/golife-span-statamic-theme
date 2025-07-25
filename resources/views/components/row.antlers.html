@@ -1,0 +1,306 @@
+{{ if card_grid == "3-column" }}
+    <section class="2xl:my-20 lg:my-14 my-12">
+        <div class="container">
+            <div class="flex xl:flex-nowrap flex-wrap xl:border-t border-gray-200">
+
+                <div class="xl:pr-6 xl:mr-6  xl:pt-8 xl:border-r border-gray-200 xl:w-[78%]" id="stories-wrapper">
+
+                    {{ collection:{collections} limit="{limit}" sort="date:desc" paginate="true" as="list" }}
+                        <div class="grid md:grid-cols-3 min-[575px]:grid-cols-2 grid-cols-1 gap-y-8 xl:-mx-6 -mx-4">
+                            {{ list }}
+                                {{ page_builder }}
+                                    {{ if type == "featured-story-banner" }}
+                                        <div class="n_post story-block">
+                                            <a href="{{ url }}" class="n_news-img">
+                                                <img src="{{ thumb_image:url }}" width="400" alt="news">
+                                            </a>
+                                            <a href="{{ url }}" class="title">{{ title }}</a>
+                                            <p class="des">{{ thumb_description | truncate:150 }} ...</p>
+                                            <p class="text-sm">by {{ author }} - {{ updated_at format="F j, Y" }}</p>
+                                        </div>
+                                    {{ /if }}
+                                {{ /page_builder }}
+                            {{ /list }}
+                        </div>
+
+                        {{ paginate }}
+                            {{ if next_page }}
+                                <div class="flex items-center justify-center mt-8" id="load-more-wrapper">
+                                    <a href="javascript:;" class="btn btn-secondary flex items-center gap-2 load-more-btn"
+                                        data-url="{{ next_page }}">
+                                        <span class="load-text">Load more {{ collections }}</span>
+                                        <span class="loader mx-small spinner hidden group-hover:animate-spin" style="display: none;"></span>
+                                    </a>
+                                </div>
+                            {{ /if }}
+                        {{ /paginate }}
+                    {{ /collection:{collections} }}
+                </div>
+
+                <div class="bg-primary-400 lg:py-12 py-8 px-4 rounded-md mt-8 xl:w-[22%] self-start w-full">
+                    {{ side_ads_card }}
+                        <img src="{{ icon:url }}" width="64" class="mx-auto">
+                        <p class="text-center my-4 2xl:text-xl text-lg text-gray-800 font-[600] leading-tight">
+                            {{ title }}
+                        </p>
+                        <p class="text-center mb-4">{{ description }}</p>
+                        <a href="{{ btn_link }}" class="btn btn-secondary w-full">{{ btn_text }}</a>
+                    {{ /side_ads_card }}
+                </div>
+            </div>
+        </div>
+    </section>
+{{ else }}
+    <section class="2xl:my-20 lg:my-14 my-12">
+        <div class="container">
+            <div
+                class="flex items-center justify-between lg:flex-nowrap flex-wrap md:gap-2 gap-1.5 lg:mb-6 mb-3 pb-2 lg:border-b border-gray-200">
+                <form id="fundraiser-filter-form"
+                    class="flex items-center lg:w-auto w-full lg:border-b-0 border-b border-gray-200 lg:pb-0 pb-2.5">
+                    <button type="submit"
+                        class="lg:w-20 w-12 md:h-10 h-8 text-primary-900 hover:text-white hover:bg-primary-900 bg-primary-900/10 rounded inline-flex items-center justify-center">
+                        <!-- SVG icon -->
+                        <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M19 19L14.657 14.657M14.657 14.657C15.4 13.914 15.989 13.032 16.391 12.062C16.794 11.091 17 10.051 17 9C17 7.949 16.794 6.909 16.391 5.938C15.989 4.968 15.4 4.086 14.657 3.343C13.914 2.6 13.032 2.011 12.062 1.609C11.091 1.207 10.051 1 9 1C7.95 1 6.909 1.207 5.939 1.609C4.968 2.011 4.086 2.6 3.343 3.343C1.843 4.843 1 6.878 1 9C1 11.122 1.843 13.157 3.343 14.657C4.844 16.157 6.878 17 9 17C11.122 17 13.157 16.157 14.657 14.657Z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <input type="text" name="search" placeholder="Search for fundraisers"
+                        class="lg:py-3 py-1.5 px-4 focus-visible:outline-none bg-transparent w-full min-w-[260px]">
+                </form>
+
+                <div class="flex items-center lg:w-auto w-full min-[575px]:flex-nowrap flex-wrap">
+                    <select name="category" id="category"
+                        class="custom-input !border-0 !bg-transparent !border-r !rounded-none min-[575px]:!w-auto w-1/2"
+                        form="fundraiser-filter-form">
+                        <option value="">Select Categories</option>
+                        {{ taxonomy:treatment_categories }}
+                            <option value="{{ slug }}">{{ title }}</option>
+                        {{ /taxonomy:treatment_categories }}
+                    </select>
+
+                    <select name="sort" id="sort"
+                        class="custom-input !border-0 !bg-transparent  lg:!border-r !rounded-none min-[575px]:!w-auto w-1/2"
+                        form="fundraiser-filter-form">
+                        <option value="">Filter</option>
+                        <option value="updated_at:desc">Recently</option>
+                        <option value="urgent">Urgently</option> <!-- custom case handled in controller -->
+                        <option value="total_raised_fund:desc">High to low fund</option>
+                        <option value="total_raised_fund:asc">Low to high fund</option>
+                        <option value="updated_at:asc">Oldest</option>
+                    </select>
+
+                    <a href="#" id="reset-filters"
+                        class="text-[#CD2217] pl-3 hover:underline lg:ml-0 min-[575px]:ml-auto">Reset
+                        Filters</a>
+                </div>
+            </div>
+            <div class="grid xl:grid-cols-4 lg:grid-cols-3 min-[575px]:grid-cols-2 grid-cols-1 gap-6 container relative"
+                id="fundraiser-list">
+                <div class="fundraiser-loader-overlay with-bg">
+                    <span class="loader"></span>
+                </div>
+                {{ partial:fundraiser-list }}
+            </div>
+            <div id="pagination-area" class="flex items-center justify-center mt-8"></div>
+
+        </div>
+    </section>
+    <style>
+        /* Overlay Loader */
+        /* Loader container overlay */
+        .fundraiser-loader-overlay {
+            position: absolute;
+            inset: 0;
+            background-color:rgb(8 61 49 / var(--tw-bg-opacity));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
+
+        /* Dot-style spinner */
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 3px dotted rgb(8 61 49 / var(--tw-bg-opacity));
+            border-style: solid solid dotted dotted;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            -webkit-animation: rotation 2s linear infinite;
+            animation: rotation 2s linear infinite;
+        }
+
+        .loader:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border: 3px dotted rgb(248 212 25);
+            border-style: solid solid dotted;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            -webkit-animation: rotationBack 1s linear infinite;
+            animation: rotationBack 1s linear infinite;
+            transform-origin: center center;
+        }
+        @-webkit-keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        @-webkit-keyframes rotationBack {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+        @keyframes rotationBack {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+    }
+</style>
+{{ /if }}
+<script>
+    $(document).ready(function () {
+        if (!$("#fundraiser-filter-form").length) return;
+
+        function forceHttps(url) {
+            const isProduction = document
+                .querySelector('meta[name="app-env"]')
+                ?.getAttribute("content") === "production";
+            return isProduction && url?.startsWith("http:")
+                ? url.replace(/^http:/, "https:")
+                : url;
+        }
+
+        function showFundraiserLoaderOverlay(withBg = false) {
+            let $overlay = $("#fundraiser-list .fundraiser-loader-overlay");
+
+            // If not present (like after HTML refresh), recreate it
+            if (!$overlay.length) {
+                $("#fundraiser-list").prepend(`
+                    <div class="fundraiser-loader-overlay ${withBg ? 'with-bg' : ''}">
+                        <span class="loader"></span>
+                    </div>
+                `);
+                $overlay = $("#fundraiser-list .fundraiser-loader-overlay");
+            }
+
+            $overlay.removeClass("hidden");
+
+            if (withBg) {
+                $overlay.addClass('with-bg');
+            } else {
+                $overlay.removeClass('with-bg');
+            }
+        }
+
+        function hideFundraiserLoaderOverlay() {
+            $("#fundraiser-list .fundraiser-loader-overlay").addClass('hidden');
+        }
+
+        function loadFundraisers(url = "/filter-fundraisers") {
+            url = forceHttps(url);
+            const formData = $("#fundraiser-filter-form").serialize();
+            const isPagination = url.includes("page=");
+
+            // Always show loader
+            showFundraiserLoaderOverlay(true);
+
+            if (!isPagination) {
+                $("#pagination-area").html(""); // reset pagination
+            }
+
+            $.ajax({
+                url: url,
+                data: formData,
+                success: function (html) {
+                    const dom = $("<div>").html(html);
+                    const items = dom.find("#fundraiser-items").html();
+                    const pagination = dom.find("#pagination-wrapper").html();
+
+                    if (!items || items.trim() === "") {
+                        $("#fundraiser-list").html(`<div class="text-center text-red-500 py-10 w-full">No Campaigns Found</div>`);
+                    } else {
+                        $("#fundraiser-list").html(items);
+                        $("#pagination-area").html(pagination);
+                    }
+
+                    hideFundraiserLoaderOverlay();
+
+                    if (isPagination) {
+                        $("html, body").animate({
+                            scrollTop: $("#fundraiser-list").offset().top - 100,
+                        }, 400);
+                    }
+                },
+                error: function () {
+                    hideFundraiserLoaderOverlay();
+                    alert("Something went wrong while loading fundraisers.");
+                },
+            });
+        }
+
+        // Initial load
+        loadFundraisers();
+
+        // Form submit
+        $("#fundraiser-filter-form").on("submit", function (e) {
+            e.preventDefault();
+            loadFundraisers();
+        });
+
+        // On filter change
+        $("#category, #sort").on("change", function () {
+            loadFundraisers();
+        });
+
+        // On search input keyup
+        $('input[name="search"]').on("keyup", function () {
+            loadFundraisers();
+        });
+
+        // Pagination links
+        $(document).on("click", ".pagination a, .pagination-link", function (e) {
+            e.preventDefault();
+            const url = $(this).attr("href");
+            if (url) loadFundraisers(forceHttps(url));
+        });
+
+        // Reset filters
+        $("#reset-filters").on("click", function (e) {
+            e.preventDefault();
+            $("#fundraiser-filter-form")[0].reset();
+            $('input[name="search"]').val("");
+            $("#category").val("");
+            $("#sort").val("");
+            loadFundraisers();
+        });
+    });
+</script>
+

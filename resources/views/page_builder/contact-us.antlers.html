@@ -1,0 +1,43 @@
+<section>
+    <div class="container max-w-[2000px] relative">
+        <div class="lg:w-1/2 lg:absolute left-0 top-0 h-full">
+            <iframe src="{{ embed_maps }}" width="100%" height="100%" style="border:0; min-height: 350px;"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="container px-0">
+
+            <div class="lg:px-12 md:px-6 lg:w-1/2 ml-auto py-10">
+                <h2 class="">{{ section_title }}</h2>
+                <div id="form-success-message" class="text-green-600 mt-4 mb-4 font-semibold hidden"
+                    style="color:green;"></div>
+                {{ form:contact-us id="contact-info"  }}
+                    {{ csrf }}
+                    <div class="global-form shadow-none p-0">
+                        {{ fields }}
+                            <div class="input-wrap" data-field="{{ handle }}">
+                                {{ if type == "text" }}
+                                    <label>{{ display }}:*</label>
+                                    <input type="{{ input_type }}" name="{{ handle }}"
+                                        placeholder="{{ placeholder }}" data-field="{{ handle }}" class="custom-input">
+                                    <div class="field-error text-red-500 text-sm mt-1" style="color: red;"></div>
+                                {{ /if }}
+                                {{ if type == "textarea" }}
+                                    <label>{{ display }}:*</label>
+                                    <textarea name="{{ handle }}" placeholder="{{ placeholder }}"
+                                        class="custom-input min-h-24"></textarea>
+                                    <div class="field-error text-red-500 text-sm mt-1" style="color: red;"></div>
+                                {{ /if }}
+                            </div>
+                        {{ /fields }}
+
+                        <button class="btn btn-secondary w-full flex items-center gap-2 justify-center mt-6"
+                            type="submit">
+                            {{ button_text }}
+                        </button>
+                    </div>
+                {{ /form:contact-us }}
+            </div>
+        </div>
+    </div>
+</section>
+

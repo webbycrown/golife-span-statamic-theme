@@ -1,0 +1,29 @@
+<section class="2xl:my-20 lg:my-14 my-12">
+    <div class="container ">
+        <div class="relative lg:px-12 lg:py-10 rounded-lg overflow-hidden bg-gray-100">
+            <div class="lg:absolute right-0 top-0 bottom-0 h-full z-0">
+                <img src="{{bg_image:url}}" width="1000" height="400" alt="donate"
+                    class="h-full object-cover">
+            </div>
+            <div class="lg:w-2/5 relative z-2 lg:p-0 p-4">
+                <h2 class="lg:mb-8 mb-6 ">{{ headline }}</h2>
+                <div class="flex flex-wrap sm:gap-0 gap-4 lg:mb-0 mb-4">
+                    {{ supporting_points }}
+                        <div
+                            class="sm:w-1/2 w-full lg:mb-8 mb-2 flex items-center gap-2.5 2xl:text-lg text-md text-gray-400 font-medium">
+                            <span class="w-10 h-10 bg-primary-900 rounded-full flex items-center justify-center"><img
+                                    src="{{ icon }}"></span>{{ text }}
+                        </div>
+                    {{ /supporting_points }}
+                </div>
+                {{ button }}
+                    <a class="btn btn-secondary" href="{{ link }}">{{ text }}</a>
+                {{ /button }}
+
+            </div>
+            <div
+                class="absolute lg:block hidden 2xl:left-[23%] 1xl:left-[15%] xl:left-[11%] left-0 top-0 bg-gradient-to-r from-gray-100 to-transparent z-1 w-1/2 h-full">
+            </div>
+        </div>
+    </div>
+</section>

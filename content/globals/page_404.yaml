@@ -1,0 +1,7 @@
+title: Page-404
+data:
+  bg_image: images/404.png
+  heading: 'Oops! Page not found'
+  description: "The page you're looking for doesn’t exist or something went wrong."
+  button_text: 'Go to Home Page'
+  toggle_field: true

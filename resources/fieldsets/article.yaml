@@ -1,0 +1,48 @@
+title: 'Article Post'
+fields:
+  -
+    handle: article
+    field:
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - anchor
+        - image
+        - table
+        - h1
+        - h4
+        - h5
+        - h6
+        - code
+        - codeblock
+        - alignleft
+        - aligncenter
+        - alignright
+        - alignjustify
+      smart_typography: true
+      save_html: true
+      remove_empty_nodes: false
+      type: bard
+      display: Article
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            work_image:
+              display: 'Work Image'
+              fields:
+                -
+                  handle: image
+                  field:
+                    max_files: 2
+                    container: assets
+                    type: assets
+                    display: image
+                    width: 50
+                    min_files: 2

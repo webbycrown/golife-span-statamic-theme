@@ -1,0 +1,26 @@
+title: 'Testimonials Section'
+fields:
+  -
+    handle: section_title
+    field:
+      type: text
+      display: 'Section Title'
+      validate:
+        - required
+  -
+    handle: section_description
+    field:
+      type: textarea
+      display: 'Section Description'
+      validate:
+        - required
+  -
+    handle: stories
+    field:
+      mode: select
+      collections:
+        - stories
+      type: entries
+      display: Stories
+      validate:
+        - required

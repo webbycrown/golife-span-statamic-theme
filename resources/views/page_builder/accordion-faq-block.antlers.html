@@ -1,0 +1,18 @@
+<section class="2xl:my-20 lg:my-14 my-12">
+    <div class="container ">
+        <h2 class="text-center">{{ section_title }}</h2>
+        <div class="max-w-[820px] faq mx-auto">
+            {{ faqs }}
+                <div class="accordian  border-b border-gray-200">
+                    <a href="#"
+                        class="accordian-title text-gray-800 block lg:text-[20px] text-lg lg:py-5 py-3.5 relative font-[500]">
+                        {{ heading }}
+                    </a>
+                    <div class="accordian-content hidden text-gray-400 pb-4">
+                        {{ description }}
+                    </div>
+                </div>
+            {{ /faqs }}
+        </div>
+    </div>
+</section>

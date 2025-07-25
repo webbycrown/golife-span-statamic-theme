@@ -1,0 +1,16 @@
+<section>
+    <div class="lg:py-12 py-8">
+        <div class="container max-w-[1000px]">
+            {{ page_builder scope="block" }}
+                {{ if type !== "related-post-grid" }}
+                    {{ partial src="page_builder/{type}" }}
+                {{ /if }}
+            {{ /page_builder }}
+        </div>
+    </div>
+</section>
+{{ page_builder scope="block" }}
+    {{ if type == "related-post-grid" }}
+        {{ partial src="page_builder/{type}" }}
+    {{ /if }}
+{{ /page_builder }}

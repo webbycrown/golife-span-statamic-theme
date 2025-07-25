@@ -1,0 +1,93 @@
+title: 'Select Collection & Layout For Listing Page'
+fields:
+  -
+    handle: layout
+    field:
+      options:
+        -
+          key: column
+          value: 'Columns Based Grid'
+        -
+          key: row
+          value: 'Row Based Grid'
+      type: select
+      display: layout
+  -
+    handle: card_grid
+    field:
+      options:
+        -
+          key: 3-column
+          value: '3-Column Based Grid'
+        -
+          key: 4-column
+          value: '4-Column Based Grid'
+      max_items: 1
+      type: select
+      display: 'Card Grid'
+      if:
+        layout: 'equals row'
+      validate:
+        - sometimes
+  -
+    handle: side_ads_card
+    field:
+      max_rows: 1
+      type: grid
+      display: 'Side Ads Card'
+      always_save: true
+      validate:
+        - sometimes
+      instructions: 'Required for 3-Column Based Grid'
+      if:
+        card_grid: 'equals 3-column'
+      fields:
+        -
+          handle: icon
+          field:
+            max_files: 1
+            container: assets
+            type: assets
+            display: Icon
+            validate:
+              - required
+        -
+          handle: title
+          field:
+            type: text
+            display: Title
+            validate:
+              - required
+        -
+          handle: description
+          field:
+            type: textarea
+            display: Description
+            validate:
+              - required
+        -
+          handle: btn_text
+          field:
+            type: text
+            display: 'btn text'
+            validate:
+              - required
+        -
+          handle: btn_link
+          field:
+            type: text
+            display: 'btn link'
+            validate:
+              - required
+  -
+    handle: collections
+    field:
+      type: collections
+      display: Collections
+      max_items: 1
+      mode: select
+  -
+    handle: limit
+    field:
+      type: integer
+      display: Limit

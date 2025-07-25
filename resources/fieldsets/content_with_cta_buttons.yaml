@@ -1,0 +1,38 @@
+title: 'Content With CTA Buttons'
+fields:
+  -
+    handle: heading
+    field:
+      type: text
+      display: Heading
+  -
+    handle: short_description
+    field:
+      type: textarea
+      display: 'Short Description'
+  -
+    handle: description
+    field:
+      type: textarea
+      display: Description
+  -
+    handle: button
+    field:
+      max_rows: 2
+      type: grid
+      display: Button
+      fields:
+        -
+          handle: text
+          field:
+            type: text
+            display: Text
+            validate:
+              - required
+        -
+          handle: link
+          field:
+            type: text
+            display: Link
+            validate:
+              - required

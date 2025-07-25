@@ -1,0 +1,49 @@
+title: 'Hero Recurring Donation'
+fields:
+  -
+    handle: bg_image
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: 'Bg Image'
+      validate:
+        - required
+  -
+    handle: section_title
+    field:
+      type: text
+      display: 'Section Title'
+      validate:
+        - required
+  -
+    handle: subtext
+    field:
+      type: textarea
+      display: SubText
+      validate:
+        - required
+  -
+    handle: donate_form
+    field:
+      type: group
+      display: 'Donate Form'
+      validate:
+        - required
+      fields:
+        -
+          handle: button_text
+          field:
+            type: text
+            display: 'Button text'
+        -
+          handle: funding_amount
+          field:
+            type: grid
+            display: 'Funding Amount'
+            fields:
+              -
+                handle: amount
+                field:
+                  type: float
+                  display: Amount

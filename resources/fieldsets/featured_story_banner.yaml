@@ -1,0 +1,54 @@
+title: Featured-Story-Banner
+fields:
+  -
+    handle: layout
+    field:
+      options:
+        -
+          key: image-text
+          value: 'Image With Text'
+        -
+          key: only-image
+          value: 'Only Image'
+      type: select
+      display: layout
+      validate:
+        - required
+      max_items: 1
+  -
+    handle: banner_image
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: 'Banner Image'
+      validate:
+        - required
+  -
+    handle: thumb_image
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: 'thumb image'
+      validate:
+        - required
+  -
+    handle: fund_amount_inr
+    field:
+      type: integer
+      display: 'fund amount Inr'
+  -
+    handle: thumb_description
+    field:
+      type: textarea
+      display: 'thumb description'
+      validate:
+        - required
+  -
+    handle: show_share_buttons
+    field:
+      type: toggle
+      display: 'show share buttons'
+      if:
+        layout: 'equals image-text'

@@ -1,0 +1,213 @@
+title: Campaign
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: slogn
+            field:
+              type: text
+              display: Slogn
+              validate:
+                - sometimes
+                - required
+          -
+            handle: types
+            field:
+              type: terms
+              display: Types
+              instructions: 'campaigns type'
+              mode: select
+              taxonomies:
+                - types
+              max_items: 1
+          -
+            handle: end_date
+            field:
+              format: '"d/m/Y"'
+              type: date
+              display: 'End Date'
+              instructions: 'Enter Your End Date'
+          -
+            handle: total_funds
+            field:
+              type: integer
+              display: 'Total Funds'
+          -
+            handle: thumb_img
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: 'Thumb img'
+          -
+            handle: thumb_description
+            field:
+              type: textarea
+              display: 'Thumb Description'
+          -
+            handle: total_contributors
+            field:
+              type: integer
+              display: 'Total Contributors'
+          -
+            handle: total_raised_fund
+            field:
+              type: float
+              display: 'Total Raised Fund In INR'
+          -
+            handle: funds_amount
+            field:
+              type: grid
+              display: 'funds amount'
+              fields:
+                -
+                  handle: amount
+                  field:
+                    type: integer
+                    display: Amount
+          -
+            handle: author
+            field:
+              max_items: 1
+              mode: select
+              collections:
+                - author
+              type: entries
+              display: Author
+              validate:
+                - required
+          -
+            handle: facebook_username
+            field:
+              type: text
+              display: 'Facebook  Username'
+              validate:
+                - required
+          -
+            handle: whatsapp_number
+            field:
+              input_type: number
+              type: text
+              display: 'WhatsApp  Number'
+              instructions: 'Only 10-digit number'
+              validate:
+                - required
+                - 'min:10'
+                - 'max:10'
+      -
+        display: 'New Section'
+        fields:
+          -
+            handle: galleries_image
+            field:
+              container: assets
+              type: assets
+              display: 'Galleries Image'
+      -
+        display: 'Page Builder'
+        fields:
+          -
+            import: page_builder
+  about:
+    display: About
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            handle: article
+            field: article.article
+            config:
+              buttons:
+                - h2
+                - h3
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - removeformat
+                - quote
+                - anchor
+                - image
+                - table
+                - h1
+                - h4
+                - h5
+                - h6
+                - code
+                - codeblock
+                - alignleft
+                - aligncenter
+                - alignright
+                - alignjustify
+              link_collections:
+                - campaigns
+              container: assets
+              always_show_set_button: true
+  documents:
+    display: Documents
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            handle: document_galleries
+            field:
+              max_files: 10
+              container: assets
+              type: assets
+              display: 'Document Galleries'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: categories
+            field:
+              mode: select
+              taxonomies:
+                - treatment_categories
+              type: terms
+              display: Categories
+              validate:
+                - required
+              max_items: 1
+          -
+            handle: urgent_requirment
+            field:
+              type: toggle
+              display: 'Urgent Requirment'
+              validate:
+                - required
+          -
+            handle: admitted
+            field:
+              type: toggle
+              display: Admitted
+              validate:
+                - required
+  seo_meta:
+    display: 'SEO Meta'
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            import: seo_meta

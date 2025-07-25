@@ -1,0 +1,16 @@
+<section class="2xl:my-20 lg:my-14 my-12 container">
+    <h2 class="text-center">{{ heading }}</h2>
+    <p class="text-center xl:mb-10 mb-6  lg:max-w-[85%] mx-auto">{{ short_description }}</p>
+    <div class="lg:text-left text-center flex items-center 1xl:gap-16 gap-6 lg:flex-nowrap flex-wrap">
+        <div class="lg:w-1/2 w-full">
+            <p class="mb-3">{{ explainetion }}</p>
+        </div>
+        <div class="lg:w-1/2 w-full">
+            <a href="{{ video }}" class="popup-youtube rounded-md relative group w-full block">
+                <img src="{{ banner_image }}" width="620" alt="crowdfundoing" class="w-full">
+                <img src="./assets/images/logos_youtube-icon.svg" width="70"
+                    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-110 transition-all">
+            </a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,73 @@
+<div id="donation-wrapper">
+    {{ donate_form }}
+        <section>
+            <div class="bg-primary-400 relative">
+                <img src="{{ bg_image }}" alt="how-it-work"
+                    class="w-full h-full object-cover sm:absolute top-0 min-h-[320px] left-0 object-left z-0">
+                <div class="container lg:py-10 py-6">
+                    <div
+                        class="sm:bg-white bg-primary-400 sm:shadow-card lg:p-6 sm:p-4 sm:max-w-[500px] relative z-1 rounded-md block ml-auto monthly-donate">
+                        <h1 class="1xl:text-2xl md:text-1xl text-xl text-gray-800 mb-3 text-center">{{ section_title }}
+                        </h1>
+
+                        <form class=" shadow-none bg-transparent p-0">
+                            <p class="text-center 2xl:text-lg text-md ">{{ subtext }}</p>
+
+                            <div
+                                class="amount-select grid sm:grid-cols-4 grid-cols-2 border border-gray-200 rounded-md py-1 px-1 gap-2  lg:w-auto w-full my-4 bg-white">
+                                {{ funding_amount }}
+                                    <input type="radio" id="amount{{ count }}" name="amount" value="{{ amount }}"
+                                        class="peer hidden"/>
+
+                                    <label for="amount{{ count }}"
+                                        class="selectamount block text-center py-3 rounded-md border border-gray-200 text-gray-800 font-semibold peer-checked:bg-primary-900 peer-checked:text-white peer-checked:border-primary-900 transition"
+                                        data-amount="{{ amount }}" style="padding: 0.65rem 0.5rem;">
+                                        ₹{{ amount }}
+                                    </label>
+                                {{ /funding_amount }}
+                            </div>
+                            <div
+                                class="amount-select flex border border-gray-200 rounded-md py-1.5 px-2.5 gap-2 lg:w-auto w-full  my-4  bg-white">
+                                <span
+                                    class="after:content-['|'] after:absolute after:right-8 after:top-[8px] after:text-gray-400/20 relative">
+                                    <select name="currency" id="currency" form="currency"
+                                        class=" currencys custom-input bg-transparent min-w-[120px] tracking-wider cursor-pointer focus-visible:outline-none border border-gray-200 rounded-md py-2 text-md font-medium text-gray-800 px-3">
+                                        {{ exchange_rates:currency_rate }}
+                                            <option value="{{ currency }}">
+                                                {{ if symbols }}
+                                                    {{ symbols }}
+                                                {{ /if }}{{ currency }}
+                                            </option>
+                                        {{ /exchange_rates:currency_rate }}
+                                    </select>
+                                </span>
+                                <input type="number" id="customAmount" placeholder="Converted amount"
+                                    class="bg-primary-400 rounded-md py-1.5 lg:text-lg text-md font-medium text-gray-400 px-3.5 max-w-full w-full grow">
+                            </div>
+                            <p id="amountError" class="text-sm text-red-500 mt-1" style="color:red"></p>
+
+                            <!-- Dynamic exchange rates from Statamic -->
+                            <ul id="exchange-rates" class="hidden">
+
+                                {{ exchange_rates:currency_rate }}
+                                    <li data-currency="{{ currency }}" data-symbol="{{ symbols }}">{{ rate }}</li>
+                                {{ /exchange_rates:currency_rate }}
+                            </ul>
+
+
+                            <button id="payBtn" type="button" class="btn btn-secondary w-full  submit">
+                                {{ button_text }} <span class="hidden" id="displayAmount">0</span>
+                            </button>
+
+                            <p id="monthly-donor-count" class="text-sm text-center mt-4 font-medium text-primary-900">
+                                <!-- Filled by JS -->
+                            </p>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    {{ /donate_form }}
+</div>

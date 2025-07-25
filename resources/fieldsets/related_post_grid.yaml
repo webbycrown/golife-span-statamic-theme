@@ -1,0 +1,38 @@
+title: Related-Post-Grid
+fields:
+  -
+    handle: layout
+    field:
+      options:
+        -
+          key: SimilarCausesGrid
+          value: 'Similar Causes Grid'
+        -
+          key: RecommendedCampaigns
+          value: 'Recommended Campaigns Grid'
+      type: select
+      display: Layout
+      max_items: 1
+      validate:
+        - required
+  -
+    handle: section_title
+    field:
+      type: text
+      display: 'Section Title'
+  -
+    handle: collections
+    field:
+      max_items: 1
+      mode: select
+      type: collections
+      display: Collections
+      validate:
+        - required
+  -
+    handle: limit
+    field:
+      type: integer
+      display: Limit
+      validate:
+        - required

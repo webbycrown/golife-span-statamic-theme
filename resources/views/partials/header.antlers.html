@@ -1,0 +1,205 @@
+{{ header }}
+    <header>
+        <div class="top-bar bg-gray-100 py-1">
+            <div class="container">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <a href="{{ link }}"
+                            class="md:text-sm text-[13px] text-primary-900 font-bold group tracking-wider	">
+                            <span
+                                class="w-6 h-6 rounded-full bg-primary-900 group-hover:bg-primary-800 transition-all align-middle inline-flex items-center justify-center">
+                                <img src="{{ icon }}" /></span>
+                            <span class="underline group-hover:no-underline align-middle">{{ text }}</span>
+                        </a>
+                        <span class="w-1 h-1 rounded-full bg-gray-400 mx-3  sm:inline-block hidden"></span>
+                        <a href="tel:{{ contact_number }}"
+                            class="text-sm font-medium text-gray-400 hover:text-primary-900 tracking-wider sm:inline-block hidden">{{ contact_number }}</a>
+                    </div>
+                    <div class="">
+                        <ul class="flex items-center">
+                            <li
+                                class="text-gray-400 hover:text-primary-900 text-sm font-medium tracking-wider relative after:content-['|'] sm:after:inline-block after:hidden after:ml-1.5 after:mr-2.5 last:after:hidden">
+                                <select name="currency" id="currency"
+                                    class="appearance-none bg-transparent min-w-[70px] tracking-wider cursor-pointer focus-visible:outline-none">
+                                    {{ exchange_rates:currency_rate }}
+                                        <option value="{{ currency }}">
+                                            {{ if symbols }}
+                                                {{ symbols }}
+                                            {{ /if }}{{ currency }}
+                                        </option>
+                                    {{ /exchange_rates:currency_rate }}
+                                </select>
+                            </li>
+                            {{ if {session:customer_logged_in} }}
+                                <li
+                                    class="text-gray-400 hover:text-primary-900 text-sm font-medium tracking-wider relative after:content-['|'] after:inline-block after:ml-1.5 after:mr-2.5 last:after:hidden lg:block hidden">
+                                    <a href="/account" class="inline-block">My Account</a>
+                                </li>
+                            {{ else }}
+                                <li
+                                    class="text-gray-400 hover:text-primary-900 text-sm font-medium tracking-wider relative after:content-['|'] after:inline-block after:ml-1.5 after:mr-2.5 last:after:hidden lg:block hidden">
+                                    <a href="#login-form" class="inline-block popup-with-form">Login/Register</a>
+                                </li>
+                            {{ /if }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-3 ">
+            <div class="container">
+                <div class="flex items-center justify-between">
+                    <a href="{{ site:url }}">
+                        <img src="{{ logo }}" alt="site-logo" width="130" height="60" class="lg:w-32 w-28" />
+                    </a>
+                    <div class="">
+                        <button type="button" class="mobile-toggle ">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <div class="mobile-navmenu">
+                            <div class="container lg:px-0">
+                                <div class="lg:hidden block pb-4 border-b border-white/10 mt-3">
+                                    <a href="{{ site:url }}">
+                                        <img src="{{ wight_logo }}" alt="site-logo" width="130" height="60"
+                                            class="lg:w-32 w-28" />
+                                    </a>
+                                </div>
+                                <ul class="nav-menu">
+                                    {{ nav:navigation }}
+                                        <li><a class="nav-link" href="{{ url }}">{{ title }}</a></li>
+                                    {{ /nav:navigation }}
+                                    {{ if {session:customer_logged_in} }}
+                                        <li class="!mr-0  lg:hidden block "><a href="/account" class="nav-link">My
+                                                Account</a>
+                                        </li>
+                                    {{ else }}
+                                        <li class="!mr-0  lg:hidden block"><a class="nav-link  popup-with-form"
+                                                href="#login-form">Login/Register</a></li>
+                                    {{ /if }}
+                                    {{ navigation_button }}
+                                        <li class="!mr-0"><a class="btn btn-secondary w-full lg:hidden block"
+                                                href="{{ url }}">{{ title }}</a></li>
+
+                                        <li><a class="btn lg:block hidden" href="{{ url }}">{{ title }}</a> </li>
+                                    {{ /navigation_button }}
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Hidden Modal -->
+            <div id="login-form" class="mfp-hide white-popup-block max-w-[600px] mx-auto">
+
+                <!-- Login Form -->
+                <form class="global-form lg:mx-6" id="customerLoginForm">
+                    {{ csrf_field }}
+                    <div
+                        class="flex items-center justify-center bg-primary-900 lg:p-4 p-3 lg:-mx-6 -mx-4 lg:-mt-6 -mt-4 mb-6">
+                        <h3 class="text-white text-lg text-center">Login</h3>
+                    </div>
+
+                    <div class="input-wrap login-input">
+                        <label>Email ID :</label>
+                        <input type="text" name="email" autocomplete="username" class="custom-input"
+                            placeholder="Email ID">
+                    </div>
+
+                    <div class="input-wrap login-input">
+                        <label>Password :</label>
+                        <input type="password" name="password" class="custom-input" placeholder="******"
+                            autocomplete="current-password">
+                    </div>
+
+                    <a href="javascript:void(0)"
+                        class="toggle-forgot block max-w-max ml-auto text-sm font-medium text-primary-900 underline">
+                        Forgot password?
+                    </a>
+
+                    <div id="loginResponse" class="hidden mt-4 p-3 rounded bg-red-500 text-white text-sm"></div>
+
+                    <button class="btn btn-secondary w-full mt-4" type="submit">Login</button>
+
+                    <p class="text-md mt-3">New to GoLife span?
+                        <a href="javascript:void(0)"
+                            class="toggle-register font-[600] text-primary-900 underline">Register now!</a>
+                    </p>
+                </form>
+
+                <!-- Register Form -->
+                <form class="global-form lg:mx-6 hidden" id="registerForm">
+                    {{ csrf_field }}
+                    <div
+                        class="flex items-center justify-center bg-primary-900 lg:p-4 p-3 lg:-mx-6 -mx-4 lg:-mt-6 -mt-4 mb-6">
+                        <h3 class="text-white text-lg text-center">Register</h3>
+                    </div>
+
+                    <div class="input-wrap register-input">
+                        <label>Full Name :</label>
+                        <input type="text" class="custom-input" name="full_name" placeholder="Enter Your Name">
+                    </div>
+
+                    <div class="input-wrap register-input">
+                        <label>Email ID :</label>
+                        <input type="text" name="email" autocomplete="username" class="custom-input"
+                            placeholder="Enter Your Email ID">
+                    </div>
+
+                    <div class="input-wrap register-input">
+                        <label>Password :</label>
+                        <input type="password" name="password" class="custom-input" placeholder="Create New Password"
+                            autocomplete="new-password">
+                    </div>
+
+                    <div id="registerResponse" class="hidden mt-4 p-3 rounded bg-red-500 text-white text-sm"></div>
+                    <button class="btn btn-secondary w-full mt-4" type="submit">Register</button>
+
+                    <p class="text-md mt-3">Already signed up with GoLife span?
+                        <a href="javascript:void(0)"
+                            class="toggle-login font-[600] text-primary-900 underline">Login</a>
+                    </p>
+                </form>
+
+                <!-- Forgot Password Form -->
+                <form class="global-form lg:mx-6 hidden" id="forgotPasswordForm">
+                    {{ csrf_field }}
+                    <div
+                        class="flex items-center justify-center bg-primary-900 lg:p-4 p-3 lg:-mx-6 -mx-4 lg:-mt-6 -mt-4 mb-6">
+                        <h3 class="text-white text-lg text-center">Forgot Password</h3>
+                    </div>
+
+                    <div class="input-wrap forgotPasswordForm">
+                        <label>Email ID :</label>
+                        <input class="custom-input" placeholder="Enter Your Email ID" type="text" name="forget_email">
+                    </div>
+
+                    <button class="btn btn-secondary w-full mt-4" type="submit">Submit</button>
+
+                    <p class="text-md mt-3">Already signed up with GoLife span?
+                        <a href="javascript:void(0)"
+                            class="toggle-login font-[600] text-primary-900 underline">Login</a>
+                    </p>
+                </form>
+
+            </div>
+
+        </div>
+    </header>
+    <ul id="exchange-rates" class="hidden">
+
+        {{ exchange_rates:currency_rate }}
+            <li data-currency="{{ currency }}" data-symbol="{{ symbols }}">{{ rate }}</li>
+        {{ /exchange_rates:currency_rate }}
+    </ul>
+    <div>
+        <div id="exchangeRates" class="hidden" data-rates='{ 
+            {{ exchange_rates:currency_rate }}
+            "{{ currency }}": {{ rate }}{{ if not last }},{{ /if }}
+{{ /exchange_rates:currency_rate }}
+            }'>
+        </div>
+    </div>
+{{ /header }}

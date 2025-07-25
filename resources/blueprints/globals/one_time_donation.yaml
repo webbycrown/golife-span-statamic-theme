@@ -1,0 +1,25 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: sub_title
+            field:
+              default: 'One Time Funding'
+              type: text
+              display: 'Sub Title'
+          -
+            handle: short_description
+            field:
+              default: "Your one-time donation has the power to create immediate, life-saving change. With just one contribution, you're helping deliver urgent medical support, launch emergency interventions, and bring hope to those facing crisis right when they need it most."
+              type: textarea
+              display: 'Short Description'
+          -
+            handle: image
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: Image

@@ -1,0 +1,68 @@
+<section>
+    <div class="bg-primary-400 relative">
+        <img src="{{ bg_image:url }}" alt="how-it-work"
+            class="w-full h-full object-cover sm:absolute top-0 min-h-[320px] left-0 object-left z-0">
+        <div class="container lg:py-10 py-6">
+            <div
+                class="sm:bg-white bg-primary-400 sm:shadow-card lg:p-6 sm:p-4 sm:max-w-[400px] 1xl:max-w-[500px] relative z-1 rounded-md block ml-auto">
+
+                <h1 class="1xl:text-2xl md:text-1xl text-xl text-gray-800 text-center mb-3">
+                    {{ form_heading }}
+                </h1>
+                <p class="text-center 2xl:text-lg text-md 2xl:mb-6 mb-3">{{ subtext }}</p>
+
+                <div id="funding-form-success" class="text-green-600 mt-2 text-sm font-semibold hidden"></div>
+
+                {{ form:funding_needed id="funding-form" ajax="true" }}
+                    {{ csrf }}
+                    {{ fields }}
+
+                        <div class="mb-4 fm-select" data-field="{{ handle }}">
+                            {{ if type == "text" || type == "integer"
+                     || type == "email" }}
+                                <input type="{{ input_type }}" name="{{ handle }}"
+                                    class="custom-input 2xl:mb-3 mt-1 mb-3" placeholder="{{ display }}" required>
+                                <div class="text-red-600 text-sm field-error"></div>
+                            {{ /if }}
+                            {{ if type == "select" }}
+                                {{ field }}
+                                <p class="text-sm text-gray-600 mt-1">*What will be the funds used for?</p>
+                                <div class="text-red-600 text-sm mt-1 field-error"></div>
+                            {{ /if }}
+                        </div>
+                    {{ /fields }}
+
+                    <button class="btn btn-secondary w-full" type="submit">{{ form_button }}</button>
+                {{ /form:funding_needed }}
+
+                <p id="monthly-donor-count" class="text-sm text-center mt-4 font-medium text-primary-900">
+                    <!-- Filled by JS -->
+                </p>
+
+            </div>
+        </div>
+    </div>
+    <style>
+        .fm-select select {
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            width: 100%;
+        }
+
+        .fm-select .field-error {
+            color: red;
+        }
+
+        .fm-select select:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        #funding-form-success {
+            color: green;
+        }
+    </style>
+</section>

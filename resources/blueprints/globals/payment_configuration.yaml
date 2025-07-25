@@ -1,0 +1,53 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Razorpay
+        fields:
+          -
+            handle: razorpay_key
+            field:
+              type: text
+              display: 'Razorpay Key'
+              validate:
+                - required
+              width: 50
+          -
+            handle: razorpay_secret
+            field:
+              type: text
+              display: 'Razorpay Secret'
+              validate:
+                - required
+              width: 50
+          -
+            handle: razorpay_status
+            field:
+              type: toggle
+              display: 'Razorpay  Status'
+      -
+        display: Stripe
+        fields:
+          -
+            handle: stripe_public_key
+            field:
+              type: text
+              display: 'Stripe Public Key'
+              width: 50
+          -
+            handle: stripe_secret_key
+            field:
+              type: text
+              display: 'Stripe Secret Key'
+              width: 50
+          -
+            handle: stripe_webhook_secret
+            field:
+              type: text
+              display: 'stripe webhook secret'
+          -
+            handle: stripe_status
+            field:
+              type: toggle
+              display: 'Stripe Status'

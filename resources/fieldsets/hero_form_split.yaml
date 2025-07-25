@@ -1,0 +1,36 @@
+title: 'Hero Form Split Section'
+fields:
+  -
+    handle: bg_image
+    field:
+      container: assets
+      type: assets
+      display: 'Bg Image'
+      max_files: 1
+  -
+    handle: form_heading
+    field:
+      type: text
+      display: 'Form heading'
+  -
+    handle: subtext
+    field:
+      type: text
+      display: Subtext
+  -
+    handle: forms
+    field:
+      max_items: 1
+      mode: select
+      type: form
+      display: Forms
+  -
+    handle: form_button
+    field:
+      type: text
+      display: 'Form Button Text'
+  -
+    handle: footer_note
+    field:
+      type: text
+      display: 'Form Footer Note'

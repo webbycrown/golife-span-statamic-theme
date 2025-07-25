@@ -1,0 +1,73 @@
+title: 'Campaigns Comment'
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: comment
+            field:
+              type: textarea
+              display: Comment
+          -
+            handle: user
+            field:
+              mode: select
+              collections:
+                - customer
+              type: entries
+              display: User
+              max_items: 1
+          -
+            handle: campaign
+            field:
+              max_items: 1
+              mode: select
+              collections:
+                - campaigns
+              type: entries
+              display: Campaign
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - campaigns_comments
+              max_items: 1
+              listable: false
+              localizable: true
+  seo_meta:
+    display: 'SEO Meta'
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            import: seo_meta

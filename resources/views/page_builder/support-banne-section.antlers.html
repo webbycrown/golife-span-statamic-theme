@@ -1,0 +1,26 @@
+<section>
+    <div class="bg-primary-400 relative">
+        <img src="{{ main_image:url }}" alt="how-it-work"
+            class="lg:w-[45%] w-full h-full object-cover lg:absolute top-0 min-h-[320px] right-0 object-center z-0">
+        <div class="container lg:py-16 py-8">
+            <div class="lg:w-[55%] lg:pr-12 sm:text-left text-center">
+                <h1 class="leading-tight">{{ title }}</h1>
+                <p class=" 2xl:text-lg text-md 2xl:mb-6 mb-3">{{ description }}.</p>
+                <div
+                    class="bg-white border-2 rounded-md border-primary-900 relative p-4 flex sm:items-end items-center justify-between mt-12 1xl:gap-6 gap-3 min-[575px]:flex-row flex-col-reverse">
+                    <img src="{{ thumbnail_image }}" width="100"
+                        class="-mb-[16px] min-[575px]:-ml-2 min-[575px]:-mt-12 ">
+                    <div class="flex items-center justify-around  xl:gap-6 gap-3 grow min-[575px]:flex-row flex-col">
+                        <p
+                            class="1xl:text-lg text-md font-[600] text-primary-900 lg:max-w-[45%] leading-tight min-[575px]:text-left text-center">
+                            {{ caption }}
+                        </p>
+                        {{ button }}
+                            <a href="{{ link }}" class="btn btn-secondary 2xl:px-8 1xl:px-4 px-3">{{ text }}</a>
+                        {{ /button }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

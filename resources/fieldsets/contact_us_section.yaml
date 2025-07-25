@@ -1,0 +1,24 @@
+title: 'Contact us Section'
+fields:
+  -
+    handle: section_title
+    field:
+      type: text
+      display: 'Section Title'
+      validate:
+        - required
+  -
+    handle: embed_maps
+    field:
+      type: textarea
+      display: 'Embed Maps'
+      instructions: 'Give Embed "src" Link'
+      validate:
+        - required
+  -
+    handle: button_text
+    field:
+      type: text
+      display: 'Form Button Text'
+      validate:
+        - required

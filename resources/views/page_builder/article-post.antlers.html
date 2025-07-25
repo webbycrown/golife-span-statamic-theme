@@ -1,0 +1,16 @@
+<div class="container max-w-[1000px]">
+    {{ article }}
+        {{ if type == "work_image" }}
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 grid-cols-1 gap-3 lg:mb-6 mb-4">
+                {{ image }}
+                    <img src="{{ url }}" alt="success story" class="w-full block max-w-full">
+                {{ /image }}
+            </div>
+        {{ /if }}
+        {{ if type == "text" }}
+            <div class="content-wrapper content-wrapper-article">
+                {{ text }}
+            </div>
+        {{ /if }}
+    {{ /article }}
+</div>

@@ -1,0 +1,28 @@
+<section>
+    <div class="bg-primary-400 lg:py-12 py-8">
+        <div class="container thank-you-box lg:py-12 py-5">
+            <div class="mt-auto mb-5 mx-auto" style="width: fit-content;">
+            <img src="./assets/images/Thankyou.svg" width="120" height="120" alt="Thank you" class="object-cover">
+        </div>
+            <h1 class="text-center lg:mb-5 mb-4"><span class=" block">Thank You!</span></h1>
+
+            <p class=" 2xl:text-lg text-md  xl:max-w-[70%] mx-auto text-center leading-relaxed">
+              Your Donation {{ status }} , and your contribution has been received. Your support plays a vital role in helping us provide life-saving care and support to those in need.!
+                Because of you, someone in need is now closer to healing and hope. We're truly grateful for
+                your compassion. </p>
+      
+            <div class="text-center lg:mt-6 mt-4">
+                <a href="/" class="btn btn-secondary hover:!bg-gray-800 inline-block">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.cookie.split(";").forEach(function(cookie) {
+            const eqPos = cookie.indexOf("=");
+            const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+        });
+    });
+</script>

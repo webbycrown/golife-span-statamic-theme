@@ -1,0 +1,20 @@
+<section class="2xl:pt-20 lg:pt-12 pt-8 border-t border-gray-200 container">
+    <h2 class="text-center">{{ section_title }}</h2>
+    <p class="text-center xl:mb-10 mb-6 lg:max-w-[85%] mx-auto">{{ section_description }}</p>
+    <div class="flex items-center lg:gap-4 gap-3 lg:flex-nowrap flex-wrap">
+        {{ images }}
+            {{ if count == 1 }}
+                <div class="lg:w-1/2 w-full">
+                    <img src="{{ image:url }}" alt="gallery-img" class="rounded-md">
+                </div>
+            {{ /if }}
+        {{ /images }}
+        <div class="lg:w-1/2 w-full grid grid-cols-2 lg:gap-4 gap-3">
+            {{ images }}
+                {{ if count != 1 }}
+                    <img src="{{ image:url }}" alt="gallery-img" class="rounded-md">
+                {{ /if }}
+            {{ /images }}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,65 @@
+title: 'Funding Banner'
+fields:
+  -
+    handle: group_field
+    field:
+      type: group
+      display: 'Group Field'
+      fields:
+        -
+          handle: replicator
+          field:
+            max_sets: 2
+            type: replicator
+            display: Replicator
+            sets:
+              new_set_group:
+                display: 'New Set Group'
+                sets:
+                  new_set:
+                    display: 'New Set'
+                    fields:
+                      -
+                        handle: button_text
+                        field:
+                          type: text
+                          display: 'Button Text'
+                          validate:
+                            - required
+                      -
+                        handle: fund_type
+                        field:
+                          options:
+                            -
+                              key: 'One Time Funding'
+                              value: 'One Time Funding'
+                            -
+                              key: 'Monthly Funding'
+                              value: 'Monthly Funding'
+                          max_items: 1
+                          type: select
+                          display: 'Fund Type'
+                          validate:
+                            - required
+                      -
+                        handle: fund_amount
+                        field:
+                          type: grid
+                          display: 'Fund Amount'
+                          fields:
+                            -
+                              handle: amount
+                              field:
+                                type: integer
+                                display: Amount
+        -
+          handle: pay_button_text
+          field:
+            type: text
+            display: 'Pay Button Text'
+        -
+          handle: note
+          field:
+            character_limit: 100
+            type: textarea
+            display: Note

@@ -1,0 +1,159 @@
+title: Footer
+data:
+  text: 'Looking to help out? thousands of fundraiser’s requests  would benefit from a donation of any size!'
+  button:
+    -
+      id: XyOAstdc
+      text: 'Find a request to support!!'
+      link: /contact-us
+  logo: images/white-logo.svg
+  social_media:
+    -
+      id: mbjckk43
+      icon: images/facebook-icon.svg
+    -
+      id: mbrocnf5
+      icon: images/twiter-icon.svg
+    -
+      id: mbrocwrs
+      icon: images/insta-icon.svg
+    -
+      id: mbroe8xk
+      icon: images/linkdin-icon.svg
+    -
+      id: mbrog4u8
+      icon: images/youtube-icon.svg
+  heading: 'Connect with us'
+  contact_info:
+    -
+      id: mbjcmtu3
+      text_field: Email
+      value: info@lifespan.org
+      type: email
+    -
+      id: mbjcn87v
+      text_field: 'Contact No'
+      value: '+1 234 (2525) 236'
+      type: phone
+  about_us: 'About Us'
+  grid_about_us:
+    -
+      id: mbkb8ejc
+      text: 'Donate monthly'
+      link: /donate-monthly
+    -
+      id: mbkb8gwg
+      text: 'Success stories'
+      link: /stories
+    -
+      id: mbkb8j4w
+      text: 'Latest news'
+      link: /news
+    -
+      id: mbkb8l68
+      text: 'Contact us'
+      link: /contact-us
+  learn: Learn
+  grid_learn:
+    -
+      id: mbkb8tr4
+      text: 'How it works'
+      link: /how-it-works
+    -
+      id: mbkb8wm0
+      text: 'Start fundraising'
+      link: /donate-monthly
+    -
+      id: mbkb8zvk
+      text: 'Browse fundraisers'
+      link: /browse-fundraisers
+  title: 'Get urgent fund needed projects in your inbox'
+  button_text: Submit
+  update_description: "We've earned the highest possible ratings from Charity Watch, Charity Navigator, and Guidestar."
+  copyright_text: '©2025 GoLife span.org, All Rights Reserved'
+  payment_image: images/footer-secured-card.png
+  accordion_block_title: 'Everything You Need to Know About GoLife Span'
+  accordion_block:
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'GoLife Span is a mission-driven initiative dedicated to supporting life-saving healthcare innovations and patient care across the globe. Through targeted fundraising and community support, we work hand-in-hand with medical institutions, research centers, and frontline hospitals to ensure that children and vulnerable patients receive timely treatment and advanced care.'
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'Whether it’s funding critical surgeries, developing medical technology, or training healthcare professionals in underserved areas, our goal is to bring lasting change  one life at a time.'
+    -
+      type: heading
+      attrs:
+        level: 3
+      content:
+        -
+          type: text
+          text: ' Why Medical Funding Matters'
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'In many parts of the world, patients face life-threatening conditions without access to basic treatment. GoLife Span bridges this gap by raising the funds needed to GoLife Span is a mission-driven healthcare initiative focused on making life-saving medical care accessible to those who need it most. We work tirelessly to support critically ill children, underprivileged families, and patients battling chronic or life-threatening diseases  regardless of their financial background.'
+    -
+      type: bulletList
+      content:
+        -
+          type: listItem
+          content:
+            -
+              type: paragraph
+              content:
+                -
+                  type: text
+                  text: 'Support urgent medical interventions for critically ill patients'
+        -
+          type: listItem
+          content:
+            -
+              type: paragraph
+              content:
+                -
+                  type: text
+                  text: 'Provide equipment and supplies to hospitals in low-resource settings'
+        -
+          type: listItem
+          content:
+            -
+              type: paragraph
+              content:
+                -
+                  type: text
+                  text: 'Fund breakthrough research for diseases like cancer, heart defects, and rare genetic conditions'
+        -
+          type: listItem
+          content:
+            -
+              type: paragraph
+              content:
+                -
+                  type: text
+                  text: 'Assist families with the cost of long-term care and recovery'
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'Through generous donations and collaborative partnerships, we fund surgeries, emergency interventions, long-term treatments, medical equipment, and research projects that save lives and bring hope to countless families across India and beyond.'
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: "Our work is powered by a network of compassionate donors, healthcare professionals, volunteers, and organizations who believe that access to healthcare is a right, not a privilege. Every rupee you contribute directly impacts lives  by covering treatment costs, improving hospital infrastructure, or supporting early diagnosis and care in underserved communities. Whether you're an individual donor, a corporate sponsor, or someone looking to volunteer, you can be part of a growing movement to build a healthier, more equitable future."
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'Join us in our mission. Together, we can turn compassion into action  and action into healing.'

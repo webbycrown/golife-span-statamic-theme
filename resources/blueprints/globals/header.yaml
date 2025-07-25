@@ -1,0 +1,89 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: 'Top Bar'
+        fields:
+          -
+            handle: icon
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: 'TopBar Icon'
+              validate:
+                - required
+          -
+            handle: text
+            field:
+              type: text
+              display: 'TopBar Text'
+              validate:
+                - required
+          -
+            handle: link
+            field:
+              type: text
+              display: Link
+              validate:
+                - required
+          -
+            handle: contact_number
+            field:
+              input_type: tel
+              type: text
+              display: 'Contact Number'
+              validate:
+                - required
+      -
+        display: Header
+        fields:
+          -
+            handle: logo
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: Logo
+              validate:
+                - required
+          -
+            handle: wight_logo
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: 'Wight Logo'
+          -
+            handle: navigation
+            field:
+              max_items: 1
+              mode: select
+              type: navs
+              display: Navigation
+              validate:
+                - required
+          -
+            handle: navigation_button
+            field:
+              max_rows: 1
+              type: grid
+              display: 'Navigation Button'
+              validate:
+                - required
+              fields:
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: Title
+                    validate:
+                      - required
+                -
+                  handle: url
+                  field:
+                    type: text
+                    display: Url
+                    validate:
+                      - required

@@ -1,0 +1,33 @@
+title: 'Three-Column Feature Layout'
+fields:
+  -
+    handle: section_title
+    field:
+      type: text
+      display: 'Section Title'
+  -
+    handle: grid_field
+    field:
+      max_rows: 15
+      min_rows: 3
+      type: grid
+      display: Grid
+      fields:
+        -
+          handle: icon
+          field:
+            max_files: 1
+            container: assets
+            type: assets
+            display: Image/Icon
+        -
+          handle: title
+          field:
+            type: text
+            display: Title
+        -
+          handle: short_description
+          field:
+            character_limit: 250
+            type: textarea
+            display: 'Short Description'

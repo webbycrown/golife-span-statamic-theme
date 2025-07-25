@@ -1,0 +1,14 @@
+title: Header
+data:
+  icon: images/urgent-bell.svg
+  text: 'Help Neshvi!!'
+  link: /campaigns/offer-neshvi-the-chance-to-hear-the-world
+  contact_number: '+1 (234) 253-5236'
+  logo: images/main-logo.svg
+  wight_logo: images/white-logo.svg
+  navigation: header
+  navigation_button:
+    -
+      id: mbkcahzu
+      title: 'Contact us'
+      url: /contact-us

@@ -1,0 +1,29 @@
+title: 'Educational Explainer Block'
+fields:
+  -
+    handle: heading
+    field:
+      type: text
+      display: Heading
+  -
+    handle: short_description
+    field:
+      type: textarea
+      display: 'Short Description'
+  -
+    handle: explainetion
+    field:
+      type: textarea
+      display: Explainetion
+  -
+    handle: video
+    field:
+      type: video
+      display: Video
+  -
+    handle: banner_image
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: 'Banner image'

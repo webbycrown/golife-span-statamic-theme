@@ -1,0 +1,25 @@
+title: 'Accordion Faq Block Section'
+fields:
+  -
+    handle: section_title
+    field:
+      type: text
+      display: 'Section Title'
+  -
+    handle: faqs
+    field:
+      max_rows: 15
+      min_rows: 5
+      type: grid
+      display: Faqs
+      fields:
+        -
+          handle: heading
+          field:
+            type: text
+            display: Heading
+        -
+          handle: description
+          field:
+            type: textarea
+            display: Description

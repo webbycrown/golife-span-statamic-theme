@@ -1,0 +1,23 @@
+<section class="2xl:my-20 lg:my-14 my-12 container">
+    <div class="bg-primary-400 rounded-md xl:p-12 p-6 ">
+        <h2 class="text-center">{{section_title}}</h2>
+        <p class="text-center xl:mb-10 mb-6">{{section_description}}</p>
+        </p>
+        <div class="overflow-hidden">
+            <div class="grid 1xl:grid-cols-4 md:grid-cols-3 min-[575px]:grid-cols-2 grid-cols-1  xl:-m-6 -m-4">
+                {{cards}}
+                <div class="border border-primary-900/15 xl:p-6 p-4 -m-px bg-primary-400 ">
+                    <span
+                        class="xl:w-20 xl:h-20 w-16 h-16 shadow-[0_0px_0px_4px_rgba(8,61,49,0.15)] mt-2 bg-primary-900 rounded-full flex items-center justify-center md:mx-1 mx-auto"><img
+                            src="{{icon}}" width="40"
+                            class="lg:w-9 lg:h-9 w-7 h-7 object-contain" alt="accident"></span>
+                    <p
+                        class="md:mt-5 mt-2.5 md:mb-3.5 mb-2 xl:text-[22px] lg:text-xl text-lg text-gray-800 font-[600] md:text-left text-center">
+                        {{title}}</p>
+                    <p class="lg:text-lg text-md md:text-left text-center">{{subtext}}</p>
+                </div>
+                {{/cards}}
+            </div>
+        </div>
+    </div>
+</section>

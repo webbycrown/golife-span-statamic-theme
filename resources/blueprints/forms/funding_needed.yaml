@@ -1,0 +1,46 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: full_name
+            field:
+              type: text
+              display: 'Full Name'
+              validate:
+                - required
+          -
+            handle: phone_number
+            field:
+              type: text
+              display: 'Phone Number'
+              validate:
+                - required
+          -
+            handle: need_for
+            field:
+              options:
+                -
+                  key: 'Cancer treatment'
+                  value: 'Cancer treatment'
+                -
+                  key: 'Accident treatment'
+                  value: 'Accident treatment'
+                -
+                  key: 'Heart treatment'
+                  value: 'Heart treatment'
+                -
+                  key: 'Premature treatment'
+                  value: 'Premature treatment'
+                -
+                  key: 'Lever treatment'
+                  value: 'Lever treatment'
+              taggable: true
+              push_tags: true
+              max_items: 1
+              type: select
+              display: 'Need For'
+              validate:
+                - required

@@ -1,0 +1,43 @@
+title: Common-Setting
+fields:
+  -
+    handle: social_media
+    field:
+      type: grid
+      display: 'Social Media'
+      fields:
+        -
+          handle: icon
+          field:
+            max_files: 1
+            container: assets
+            type: assets
+            display: Icon
+        -
+          handle: link
+          field:
+            type: text
+            display: Link
+  -
+    handle: social_media_text
+    field:
+      type: grid
+      display: 'Social Media - Text'
+      fields:
+        -
+          handle: icon
+          field:
+            max_files: 1
+            container: assets
+            type: assets
+            display: Icon
+        -
+          handle: link
+          field:
+            type: text
+            display: Link
+        -
+          handle: text
+          field:
+            type: text
+            display: text

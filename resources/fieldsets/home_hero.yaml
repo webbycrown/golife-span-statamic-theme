@@ -1,0 +1,42 @@
+title: 'Home Hero'
+fields:
+  -
+    handle: image
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: 'Side Image'
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: subtitle
+    field:
+      type: text
+      display: Subtitle
+  -
+    handle: short_description
+    field:
+      character_limit: 200
+      type: textarea
+      display: 'Short Description'
+  -
+    handle: button
+    field:
+      max_rows: 1
+      type: grid
+      display: Button
+      fields:
+        -
+          handle: text_field
+          field:
+            type: text
+            display: Text
+        -
+          handle: link
+          field:
+            type: text
+            display: Link

@@ -1,0 +1,190 @@
+title: 'All Page Builder'
+fields:
+  -
+    handle: page_builder
+    field:
+      collapse: true
+      type: replicator
+      display: 'Page Builder'
+      sets:
+        'New Set Group':
+          display: 'New Set Group'
+          icon: layout-header
+          sets:
+            home_hero:
+              display: 'Home Hero'
+              icon: align-object-center
+              fields:
+                -
+                  import: home_hero
+            banner_cta:
+              display: 'Banner CTA'
+              instructions: 'Banner With "Call-to-Action"'
+              icon: flash-bolt-lightning
+              fields:
+                -
+                  import: banner_cta
+            milestone-section:
+              display: 'Milestone Section'
+              icon: addon-boxes-stack
+              fields:
+                -
+                  import: milestone_section
+            process-overview:
+              display: 'Process Overview Section'
+              fields:
+                -
+                  import: process_overview
+            service-highlight:
+              display: 'Service Highlight Section'
+              icon: content-book-open
+              fields:
+                -
+                  import: service_highlight
+            process-flow-with-cta:
+              display: 'Process Flow With CTA'
+              icon: layout-flip-down
+              fields:
+                -
+                  import: process_flow_with_cta
+            hero-form-split:
+              display: 'Hero Form Split Section'
+              icon: computer-desktop
+              fields:
+                -
+                  import: hero_form_split
+            educational-explainer-block:
+              display: 'Educational Explainer Block'
+              icon: bookmark
+              fields:
+                -
+                  import: educational_explainer_block
+            category-cards-grid:
+              display: 'Category Cards Grid Section'
+              icon: layout-display-split-quarters
+              fields:
+                -
+                  import: category_cards_grid
+            behind-the-scenes-block:
+              display: 'Behind The Scenes Block Section'
+              fields:
+                -
+                  import: behind_the_scenes_block
+            accordion-faq-block:
+              display: 'Accordion Faq Block Section'
+              icon: alert-help-question
+              fields:
+                -
+                  import: accordion_faq_block
+            hero-recurring-donation:
+              display: 'Hero Recurring Donation'
+              icon: form-text-field
+              fields:
+                -
+                  import: hero_recurring_donation
+            three-column-feature-layout:
+              display: 'Three-Column Feature Layout'
+              icon: travel-map
+              fields:
+                -
+                  import: three_column_feature_layout
+            content-with-cta-buttons:
+              display: 'Content With CTA Buttons'
+              icon: layout-header-sidebar-left
+              fields:
+                -
+                  import: content_with_cta_buttons
+            awards-and-ratings:
+              display: 'Awards And Ratings'
+              icon: layout-split-horizontal
+              fields:
+                -
+                  import: awards_and_ratings
+            intro-section:
+              display: 'Intro Section'
+              icon: align-object-top
+              fields:
+                -
+                  import: intro_section
+            info-cards-grid:
+              display: 'Info Cards Grid'
+              icon: layout-display-split-quarters
+              fields:
+                -
+                  import: info_cards_grid
+            contact-us:
+              display: 'Contact-Us Section'
+              fields:
+                -
+                  import: contact_us_section
+            article-post:
+              display: 'Article Post'
+              icon: align-object-center
+              fields:
+                -
+                  import: article
+            featured-story-banner:
+              display: Featured-Story-Banner
+              icon: layout-flip-down
+              fields:
+                -
+                  import: featured_story_banner
+            similar-campaigns:
+              display: similar-campaigns
+              icon: computer-logo-communication-zoom
+              fields:
+                -
+                  import: similar_campaigns
+            select-collection-layout:
+              display: 'Select Collection & Layout For Listing Page'
+              icon: dashboard-layout
+              fields:
+                -
+                  import: select_collection_layout
+            testimonial-section:
+              display: 'testimonial section'
+              icon: layout-carousel-horizontal
+              fields:
+                -
+                  import: testimonials_section
+            related-post-grid:
+              display: Related-Post-Grid
+              icon: layout-carousel-horizontal
+              fields:
+                -
+                  import: related_post_grid
+            campaigns-section:
+              display: 'Campaigns Section'
+              fields:
+                -
+                  import: campaigns_section
+            support-banne-section:
+              display: 'Support Banner Section'
+              icon: media-image-photo-focus-frame
+              fields:
+                -
+                  import: support_banner_section
+            urgent-needs-grid:
+              display: 'Urgent Needs Grid'
+              icon: file-content-list
+              fields:
+                -
+                  import: urgent_needs_grid
+            campaign-category-grid:
+              display: 'Campaign Category Grid'
+              icon: layout-grid-dots
+              fields:
+                -
+                  import: campaign_category_grid
+            funding-banner:
+              display: 'Funding Banner'
+              icon: layout-flip-down
+              fields:
+                -
+                  import: funding_banner
+            payment_details:
+              display: 'Payment Details'
+              icon: align-left
+              fields:
+                -
+                  import: payment_details

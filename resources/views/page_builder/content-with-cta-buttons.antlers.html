@@ -1,0 +1,18 @@
+<section class="2xl:my-20 lg:my-14 my-12">
+    <div class="container max-w-[1200px]">
+        <h2 class="text-center">{{ heading }}</h2>
+        <p class="lg:mb-4 mb-3 text-center">{{ short_description }}</p>
+        <p class="lg:mb-4 mb-3 text-center">{{ description }}
+        </p>
+        <div class="flex gap-4 items-center justify-center sm:flex-nowrap flex-wrap lg:mt-8 mt-6">
+            {{ button }}
+                {{ if count == 1 }}
+                    <a class="btn btn-secondary sm:min-w-64 min-w-full" href="{{ link }}">{{ text }}</a>
+                {{ else }}
+                    <a class="btn btn-primary sm:min-w-64 min-w-full" href="{{ link }}">{{ text }}</a>
+                {{ /if }}
+            {{ /button }}
+        </div>
+    </div>
+    </div>
+</section>
