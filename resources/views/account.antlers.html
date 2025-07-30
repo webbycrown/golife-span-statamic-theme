@@ -318,7 +318,7 @@
                 <div id="donation-list-wrapper">
                     
                     {{ total_amount = 0 }}
-                    {{ collection:donation donor_name:contains="{session:customer_id}" paginate="true" as="list" limit="5" donation_type:contains="One Time Funding" }}
+                    {{ collection:donation email:contains="{session:customer_email}" paginate="true" as="list" limit="5" donation_type:contains="One Time Funding" }}
                     
                         {{ list }}
                             {{ total_amount = (total_amount + amount_inr) }}
